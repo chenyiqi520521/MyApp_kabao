@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e8e8e8"
+    android:orientation="vertical"
+    android:scrollbars="none" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/kabao" >
+
+            <ImageButton
+                android:id="@+id/ib_return"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                 android:layout_marginLeft="10dip"
+                android:background="@drawable/white_left_arrow" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:text="充值"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/white" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                android:text="金额:"
+                android:textColor="#4c4b4b" />
+
+            <EditText
+                android:id="@+id/ed_crad_amount"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@null"
+                android:ems="10"
+                android:gravity="center_vertical"
+                android:hint="请输入充值金额大于10元"
+                android:imeOptions="actionDone"
+                android:maxLength="11"
+                android:maxLines="1"
+                android:paddingLeft="20dp"
+                android:singleLine="true"
+                android:textColor="#aaa4a4"
+                android:textColorHint="#aaa4a4"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/white"
+            android:visibility="visible" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                android:text="卡号:"
+                android:textColor="#4c4b4b" />
+
+            <TextView
+                android:id="@+id/ed_crad"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:text="请点击下面，连接设备"
+                android:textColor="#aaa4a4" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingTop="20dp"
+            android:text="请选择充值通道"
+            android:textColor="#aaa4a4"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/white"
+            android:visibility="visible" >
+
+            <RadioGroup
+                android:id="@+id/radiogroup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <RadioButton
+                    android:id="@+id/rad_one"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="@null"
+                    android:button="@drawable/selectro_radiobutton"
+                    android:checked="true"
+                    android:paddingLeft="10dp"
+                    android:text="单笔充值最高限额为三万元,每日单卡最高充值6万元;一个丈夫一天充值不能超过20万;充值手续费为:0.78%"
+                    android:textColor="#aaa4a4" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="#d0d0d0" />
+
+                <RadioButton
+                    android:id="@+id/rad_two"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="@null"
+                    android:button="@drawable/selectro_radiobutton"
+                    android:paddingLeft="10dp"
+                    android:text="单笔充值高限额为2万元,每日单卡最高充值6万;一个账户一天充值不能超过12万;38元封顶,手续费为:0.38%"
+                    android:textColor="#aaa4a4" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="#d0d0d0" />
+                 <RadioButton
+                    android:id="@+id/rad_three"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="@null"
+                    android:button="@drawable/selectro_radiobutton"
+                    android:paddingLeft="10dp"
+                    android:visibility="gone"
+                 
+                    android:textColor="#aaa4a4" />
+                   <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="#d0d0d0" />
+                  <RadioButton
+                    android:id="@+id/rad_four"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="@null"
+                    android:button="@drawable/selectro_radiobutton"
+                    android:paddingLeft="10dp"
+                    android:visibility="gone"
+                   
+                    android:textColor="#aaa4a4" />
+                   <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="#d0d0d0" />
+                  <RadioButton
+                    android:id="@+id/rad_five"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="@null"
+                    android:button="@drawable/selectro_radiobutton"
+                    android:paddingLeft="10dp"
+                    android:visibility="gone"
+                   
+                    android:textColor="#aaa4a4" />
+                
+            </RadioGroup>
+            
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            
+            
+            
+            
+            
+            
+
+            <TextView
+                android:id="@+id/btn_ok"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/kabao"
+                android:text="获取卡号"
+                android:clickable="true"
+                android:gravity="center"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" 
+            android:layout_marginTop="10dip">
+
+          
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="注：每日23：00之前的钱包提现次日到账，即D+1；每日23：00-24：00系统清算，不予提现。"
+                android:textColor="#aaa4a4" />
+          
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#e8e8e8"
+     >
+    <LinearLayout 
+     	android:layout_width="fill_parent"
+     	android:layout_height="200dip"
+        >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="200dip"
+                android:background="@drawable/welcome_rain" >
+
+                <com.apicloud.library.CircleImageView
+                    android:id="@+id/cir_welcome_out"
+                    android:layout_width="40dip"
+                    android:layout_height="40dip"
+                    android:layout_alignBottom="@+id/cir_welcome_default"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="42dip"
+                    app:border_color="#ffffff"
+                    app:border_width="1dp"
+                    android:src="@drawable/ico_money2" />
+
+                <TextView
+                    android:layout_width="40dip"
+                    android:layout_height="40dip"
+                    android:layout_alignLeft="@+id/cir_welcome_money"
+                    android:layout_below="@+id/cir_welcome_money"
+                    android:text="充值"
+                    android:textColor="@color/white" />
+
+                <com.apicloud.library.CircleImageView
+                    android:id="@+id/cir_welcome_money"
+                    android:layout_width="40dip"
+                    android:layout_height="40dip"
+                    android:layout_alignBottom="@+id/cir_welcome_default"
+                    android:layout_alignTop="@+id/cir_welcome_out"
+                    android:layout_marginRight="46dip"
+                    android:layout_toLeftOf="@+id/cir_welcome_default"
+                    android:src="@drawable/ico_money3"
+                    app:border_color="#ffffff"
+                    app:border_width="1dp" />
+
+                <TextView
+                    android:id="@+id/textView_left"
+                    android:layout_width="40dip"
+                    android:layout_height="40dip"
+                    android:layout_alignLeft="@+id/tx_welcome_name"
+                    android:layout_alignParentBottom="true"
+                    android:text="余额"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/tx_welcome_leftmoney"
+                    android:layout_width="40dip"
+                    android:layout_height="40dip"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toRightOf="@+id/textView_left"
+                    android:text="19.9"
+                    android:textColor="@color/white" />
+
+                <com.apicloud.library.CircleImageView
+                    android:id="@+id/cir_welcome_default"
+                    android:layout_width="100dip"
+                    android:layout_height="100dip"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    app:border_color="#ffffff"
+                    app:border_width="1dp"
+                    android:src="@drawable/welcome_default" />
+
+                <TextView
+                    android:id="@+id/tx_welcome_name"
+                    android:layout_width="40dip"
+                    android:layout_height="40dip"
+                    android:layout_above="@+id/tx_welcome_leftmoney"
+                    android:layout_centerHorizontal="true"
+                    android:text="陈凯"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:layout_width="40dip"
+                    android:layout_height="40dip"
+                    android:layout_above="@+id/tx_welcome_leftmoney"
+                    android:layout_alignLeft="@+id/cir_welcome_out"
+                    android:text="提现"
+                    android:textColor="@color/white" />
+
+            </RelativeLayout>
+
+       
+    </LinearLayout>
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+   	    android:layout_height="50dip"
+   	    android:id="@+id/timely_accounts"
+   	    android:background="#ffffff"
+	    >
+
+	    <RelativeLayout
+	        android:id="@+id/rl_realTime_account"
+	        android:layout_width="fill_parent"
+	        android:layout_height="50dip"
+	        android:background="#ffffff" >
+
+	        <ImageView
+	            android:id="@+id/imageView_timely_arrow"
+	            android:layout_width="40dip"
+	            android:layout_height="20dip"
+	            android:layout_alignParentRight="true"
+	            android:layout_centerVertical="true"
+	            android:src="@drawable/arrow" />
+
+	        <ImageView
+	            android:id="@+id/imageView_timelyIn"
+	            android:layout_width="30dip"
+	            android:layout_height="30dip"
+	            android:layout_alignParentLeft="true"
+	            android:layout_alignTop="@+id/textView_timelyIn"
+	            android:src="@drawable/ico_time" />
+
+	        <TextView
+	            android:id="@+id/textView_timelyIn"
+	            android:layout_width="80dip"
+	            android:layout_height="30dip"
+	            android:layout_alignTop="@+id/imageView_timely_arrow"
+	            android:layout_toRightOf="@+id/imageView_timelyIn"
+	            android:gravity="center_vertical"
+	            android:text="实时收款"
+	            android:textColor="#4c4b4b" />
+
+	    </RelativeLayout>
+
+	</LinearLayout>
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+   	    android:layout_height="50dip"
+   	    android:id="@+id/device_manage"
+   	    android:background="#ffffff"
+   	    android:layout_marginTop="2dip"
+	    >
+
+	    <RelativeLayout
+	        android:id="@+id/rl_bindDevice"
+	        android:layout_width="fill_parent"
+	        android:layout_height="50dip"
+	        android:background="#ffffff"
+	        android:layout_marginTop="2dip"
+	         >
+
+	        <ImageView
+	            android:id="@+id/imageView_device_arrow"
+	            android:layout_width="40dip"
+	            android:layout_height="20dip"
+	            android:layout_alignParentRight="true"
+	            android:layout_centerVertical="true"
+	            android:src="@drawable/arrow" />
+
+	        <ImageView
+	            android:id="@+id/imageView_device"
+	            android:layout_width="30dip"
+	            android:layout_height="30dip"
+	            android:layout_alignParentLeft="true"
+	            android:layout_alignTop="@+id/textView_device"
+	            android:src="@drawable/ico_card2" />
+
+	        <TextView
+	            android:id="@+id/textView_device"
+	            android:layout_width="80dip"
+	            android:layout_height="30dip"
+	            android:layout_alignTop="@+id/imageView_device_arrow"
+	            android:layout_toRightOf="@+id/imageView_device"
+	            android:gravity="center_vertical"
+	            android:text="设备管理"
+	            android:textColor="#4c4b4b" />
+
+	    </RelativeLayout>
+
+	</LinearLayout>
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+   	    android:layout_height="50dip"
+   	    android:id="@+id/about_us"
+   	    android:background="#ffffff"
+   	    android:layout_marginTop="2dip"
+	    >
+
+	    <RelativeLayout
+	        android:id="@+id/rl_aboutUs"
+	        android:layout_width="fill_parent"
+	        android:layout_height="50dip"
+	        android:background="#ffffff"
+	        android:layout_marginTop="2dip" >
+
+	        <ImageView
+	            android:id="@+id/imageView_about_arrow"
+	            android:layout_width="40dip"
+	            android:layout_height="20dip"
+	            android:layout_alignParentRight="true"
+	            android:layout_centerVertical="true"
+	            android:src="@drawable/arrow" />
+
+	        <ImageView
+	            android:id="@+id/imageView_about"
+	            android:layout_width="30dip"
+	            android:layout_height="30dip"
+	            android:layout_alignParentLeft="true"
+	            android:layout_alignTop="@+id/textView_about"
+	            android:src="@drawable/about" />
+
+	        <TextView
+	            android:id="@+id/textView_about"
+	            android:layout_width="80dip"
+	            android:layout_height="30dip"
+	            android:layout_alignTop="@+id/imageView_about_arrow"
+	            android:layout_toRightOf="@+id/imageView_about"
+	            android:gravity="center_vertical"
+	            android:text="关于我们"
+	            android:textColor="#4c4b4b" />
+
+	    </RelativeLayout>
+
+	</LinearLayout>
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+   	    android:layout_height="50dip"
+   	    android:id="@+id/safe_accounts"
+   	    android:background="#ffffff"
+   	    android:layout_marginTop="2dip"
+	    >
+
+	    <RelativeLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="50dip"
+	        android:background="#ffffff"
+	        android:layout_marginTop="2dip" >
+
+	        <ImageView
+	            android:id="@+id/imageView_safe_arrow"
+	            android:layout_width="40dip"
+	            android:layout_height="20dip"
+	            android:layout_alignParentRight="true"
+	            android:layout_centerVertical="true"
+	            android:src="@drawable/arrow" />
+
+	        <ImageView
+	            android:id="@+id/imageView_safe"
+	            android:layout_width="30dip"
+	            android:layout_height="30dip"
+	            android:layout_alignParentLeft="true"
+	            android:layout_alignTop="@+id/textView_safe"
+	            android:src="@drawable/ico_safe" />
+
+	        <TextView
+	            android:id="@+id/textView_safe"
+	            android:layout_width="80dip"
+	            android:layout_height="30dip"
+	            android:layout_alignTop="@+id/imageView_safe_arrow"
+	            android:layout_toRightOf="@+id/imageView_safe"
+	            android:gravity="center_vertical"
+	            android:text="账户安全"
+	            android:textColor="#4c4b4b" />
+
+	    </RelativeLayout>
+
+	</LinearLayout>
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+   	    android:layout_height="50dip"
+   	    android:id="@+id/clear_cash"
+   	    android:background="#ffffff"
+   	    android:layout_marginTop="2dip"
+	    >
+
+	    <RelativeLayout
+	        android:id="@+id/rl_cleanCache"
+	        android:layout_width="fill_parent"
+	        android:layout_height="50dip"
+	        android:background="#ffffff"
+	        android:layout_marginTop="2dip" >
+
+	        <ImageView
+	            android:id="@+id/imageView_clear_arrow"
+	            android:layout_width="40dip"
+	            android:layout_height="20dip"
+	            android:layout_alignParentRight="true"
+	            android:layout_centerVertical="true"
+	            android:src="@drawable/arrow" />
+
+	        <ImageView
+	            android:id="@+id/imageView_clear"
+	            android:layout_width="30dip"
+	            android:layout_height="30dip"
+	            android:layout_alignParentLeft="true"
+	            android:layout_alignTop="@+id/textView_clear"
+	            android:src="@drawable/qingchu" />
+
+	        <TextView
+	            android:id="@+id/textView_clear"
+	            android:layout_width="80dip"
+	            android:layout_height="30dip"
+	            android:layout_alignTop="@+id/imageView_clear_arrow"
+	            android:layout_toRightOf="@+id/imageView_clear"
+	            android:gravity="center_vertical"
+	            android:text="清除缓存"
+	            android:textColor="#4c4b4b" />
+
+	    </RelativeLayout>
+
+	</LinearLayout>
+	<Button 
+	    android:id="@+id/safely_logout"
+	    android:layout_width="fill_parent"
+   	    android:layout_height="50dip"
+   	    android:text="安全退出"
+   	    android:background="@color/kabao"
+   	    android:layout_marginTop="20dip"
+   	    android:layout_marginBottom="20dip"
+	    />
+	
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+   	    android:layout_height="fill_parent"
+   	    android:background="#ffffff"
+   	    android:orientation="horizontal"
+	    >
+
+		<RelativeLayout
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:background="#ffffff" 
+   	    	android:layout_gravity="center_vertical">
+			
+		    <TextView
+		        android:id="@+id/textView_card"
+		        android:layout_width="60dip"
+		        android:layout_height="20dip"
+		        android:layout_below="@+id/welcome_bottom_list"
+		        android:layout_marginRight="26dp"
+		        android:layout_toLeftOf="@+id/textView_idconfirm"
+		        android:text="卡管理" />
+
+		    <ImageView
+		        android:id="@+id/welcome_bottom_card"
+		        android:layout_width="40dip"
+		        android:layout_height="25dip"
+		        android:layout_above="@+id/textView_card"
+		        android:layout_alignLeft="@+id/textView_card"
+		        android:src="@drawable/ico_wallet" />
+
+		    <ImageView
+		        android:id="@+id/welcome_bottom_list"
+		        android:layout_width="40dip"
+		        android:layout_height="25dip"
+		        android:layout_alignParentRight="true"
+		        android:layout_alignParentTop="true"
+		        android:layout_marginRight="33dp"
+		        android:src="@drawable/ico_list" />
+
+		    <TextView
+		        android:id="@+id/textView_tranfer"
+		        android:layout_width="60dip"
+		        android:layout_height="20dip"
+		        android:layout_alignBaseline="@+id/textView_idconfirm"
+		        android:layout_alignBottom="@+id/textView_idconfirm"
+		        android:layout_alignParentRight="true"
+		        android:layout_marginRight="20dp"
+		        android:text="交易记录" />
+
+		    <TextView
+		        android:id="@+id/textView_idconfirm"
+		        android:layout_width="60dip"
+		        android:layout_height="20dip"
+		        android:layout_alignBaseline="@+id/textView_card"
+		        android:layout_alignBottom="@+id/textView_card"
+		        android:layout_marginRight="23dp"
+		        android:layout_toLeftOf="@+id/textView_tranfer"
+		        android:text="身份认证" />
+
+		    <ImageView
+		        android:id="@+id/welcome_bottom_user"
+		        android:layout_width="40dip"
+		        android:layout_height="25dip"
+		        android:layout_alignLeft="@+id/textView_idconfirm"
+		        android:layout_alignParentTop="true"
+		        android:layout_marginLeft="10dp"
+		        android:src="@drawable/ico_user" />
+
+		    <TextView
+		        android:id="@+id/textView_wallet"
+		        android:layout_width="60dip"
+		        android:layout_height="20dip"
+		        android:layout_alignBaseline="@+id/textView_card"
+		        android:layout_alignBottom="@+id/textView_card"
+		        android:layout_alignParentLeft="true"
+		        android:layout_marginLeft="20dp"
+		        android:text="我的钱包" />
+
+		    <ImageView
+		        android:id="@+id/welcome_bottom_wallet"
+		        android:layout_width="40dip"
+		        android:layout_height="25dip"
+		        android:layout_above="@+id/textView_wallet"
+		        android:layout_alignRight="@+id/textView_wallet"
+		        android:layout_marginRight="9dp"
+		        android:src="@drawable/ico_bao2" />
+
+		</RelativeLayout>
+
+	</LinearLayout>
+	
+</LinearLayout>

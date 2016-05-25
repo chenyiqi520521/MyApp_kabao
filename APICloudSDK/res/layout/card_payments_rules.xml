@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e8e8e8"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_vertical"
+        android:background="@color/kabao" >
+
+        <ImageButton
+            android:id="@+id/ib_return"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/white_left_arrow" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:text="信用卡还款业务规则"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="信用卡还款业务规则"
+                android:textColor="#4c4b4b"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="一丶可使用所有银联标示的借记卡(即储蓄卡)为信用卡还款.(信用卡不可以以还信用卡)"
+                android:textColor="#4c4b4b"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="二丶目前支持一下银行的信用卡还款,按额度恢复失时效划分:"
+                android:textColor="#4c4b4b"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1丶实时到账:"
+                android:textColor="#4c4b4b"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="招商银行、中信银行、民生银行、光大银行、北京银行、广发银行、上海银行、江苏银行、北京农商行、重庆农商行、上海农商行、南京银行、广州银行、宁波银行、徽商银行、盛京银行、哈尔滨银行、成都农商行、包商银行、浙江泰隆银行、重庆银行、广东南粤银行、温州银行、青岛银行、乌鲁木齐银行、福建农信社、青海银行、青海省农村信用社联合社、鄞州农村合作银行、浙江稠州商业银行、绍兴银行、内蒙古银行、浙江民泰商业银行、珠海华润银行、长沙银行、宁夏银行、渣打银行、南充商业银行、陕西农信社 "
+                android:textColor="#4c4b4b"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2、三个工作日内恢复额度："
+                android:textColor="#4c4b4b"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="中国银行、工商银行、建设银行、交通银行、花旗银行"
+                android:textColor="#4c4b4b"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3、三个工作日内恢复额度："
+                android:textColor="#4c4b4b"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="农业银行、平安银行、南洋商业银行、东亚银行、台州商行、华夏银行、浦发银行、兴业银行、大连银行"
+                android:textColor="#4c4b4b"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="三、手续费"
+                android:textColor="#4c4b4b"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="中国银行、工商银行、交通银行、建设银行、北京农商行，信用卡还款业务每笔收取手续费3元，北京银行2元，其他银行免费。"
+                android:textColor="#4c4b4b"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="四、最低还款金额限制："
+                android:textColor="#4c4b4b"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="最低还款金额为10元；"
+                android:textColor="#4c4b4b"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="五、还款次数限制："
+                android:textColor="#4c4b4b"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1、民生银行、平安银行、中信银行、招商银行、兴业银行单月（自然月）最多可以还款3次；、"
+                android:textColor="#4c4b4b"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2、广发银行单卡单日最多还款笔数为3笔（含）；"
+                android:textColor="#4c4b4b"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3、光大银行单张信用卡单月（自然月）最多还款笔数为5笔（含）；"
+                android:textColor="#4c4b4b"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4、以上银行的信用卡还款业务如交易失败，退款流程将耗时14个工作日。"
+                android:textColor="#4c4b4b"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

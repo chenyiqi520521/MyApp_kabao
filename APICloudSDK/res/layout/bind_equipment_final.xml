@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/white">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_vertical"
+        android:background="@color/kabao"
+         >
+
+        <ImageButton
+            android:id="@+id/ib_return"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+             android:layout_marginLeft="10dip"
+            android:background="@drawable/white_left_arrow" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:text="绑定设备"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+    
+    <TextView 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="设备读取成功"
+        android:textColor="@color/black"
+        android:padding="5dip"
+        android:layout_marginTop="15dip"
+        />
+      <TextView 
+        android:id="@+id/tv_deviceid"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="设备编号:"
+        android:textColor="@color/black"
+        android:padding="5dip"
+        />
+      <View 
+          android:layout_width="fill_parent"
+          android:layout_height="1dip"
+          android:background="@color/black"/>
+       <TextView
+            android:id="@+id/tv_bind"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:paddingRight="10dp"
+             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:text="绑定"
+            android:background="@color/kabao"
+            android:textColor="@android:color/white"/> 
+    
+
+</LinearLayout>

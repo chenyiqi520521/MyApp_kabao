@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=0">
+    <title>APICloud</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <script type="text/javascript">
+
+    var uzmoduledemo = null;
+    apiready = function(){
+        uzmoduledemo = api.require('myDemo');
+      }
+        
+    function Signature(){   
+          uzmoduledemo.signature();
+    }
+  
+    function querymoney(){   
+          uzmoduledemo.querymoney();
+    }
+     function addCard(){
+           var param = {uid:"1431417384774757443",cardNo:"cradNo",money:"0.01",phone:"phone",name:"name"};
+            var resultCallback = function(ret, err){
+            document.getElementById("activity_result").innerHTML = JSON.stringify(ret);
+           }
+          uzmoduledemo.addCard(param, resultCallback);
+    }
+    
+    function topUpPay(){
+          var param = {uid:"1431417384774757443",cardNo:"cradNo",money:"0.01",phone:"phone",name:"name"};
+      var resultCallback = function(ret, err){
+            document.getElementById("activity_result").innerHTML = JSON.stringify(ret);
+     }
+          uzmoduledemo.topUpPay(param, resultCallback);
+    }
+  
+      function creditCardPayment(){
+          var param = {uid:"1431417384774757443",cardNo:"cradNo",money:"money",phone:"phone",name:"name"};
+      var resultCallback = function(ret, err){
+            document.getElementById("activity_result").innerHTML = JSON.stringify(ret);
+     }
+          uzmoduledemo.creditCardPayment(param, resultCallback);
+    }
+    
+    function addCardPayments(){
+          var param = {uid:"1431417384774757443",cardNo:"cradNo",money:"money",phone:"phone",name:"name"};
+      var resultCallback = function(ret, err){
+            document.getElementById("activity_result").innerHTML = JSON.stringify(ret);
+     }
+          uzmoduledemo.addCardPayments(param, resultCallback);
+    }
+    function telPhonePayment(){
+          var param = {uid:"1431417384774757443",cardNo:"cradNo",money:"0.01",phone:"phone",name:"name"};
+      var resultCallback = function(ret, err){
+            document.getElementById("activity_result").innerHTML = JSON.stringify(ret);
+     }
+          uzmoduledemo.telPhonePayment(param, resultCallback);
+    }
+    
+     function tradnsferAccountsPayment(){
+           var param = {uid:"1431417384774757443",cardNo:"cradNo",money:"0.01",phone:"phone",name:"name"};
+           var resultCallback = function(ret, err){
+            document.getElementById("activity_result").innerHTML = JSON.stringify(ret);
+     }
+          uzmoduledemo.tradnsferAccountsPayment(param, resultCallback);
+    }
+    
+         function addTimelyAccount(){
+          var param = {uid:"1431417384774757443",cardNo:"cradNo",money:"0.01",phone:"phone",name:"name"};
+      var resultCallback = function(ret, err){
+            document.getElementById("activity_result").innerHTML = JSON.stringify(ret);
+     }
+          uzmoduledemo.addTimelyAccount(param, resultCallback);
+    }
+    
+    function timelyAccountTopUp(){
+          var param = {uid:"1431417384774757443",cardNo:"cardNo",money:"0.01",phone:"phone",name:"name",url:"bank_gs",acctNo:"6222023202044460979"};
+           var resultCallback = function(ret, err){
+            document.getElementById("activity_result").innerHTML = JSON.stringify(ret);
+     }
+          uzmoduledemo.timelyAccountTopUp(param, resultCallback);
+    }
+     function bindDevice(){ 
+          var param = {lkey:"1431417384774757443",shopno:"100010",pos:"E"};
+          var resultCallback = function(ret, err){
+          document.getElementById("activity_result").innerHTML = ret.callback;
+     }  
+          uzmoduledemo.bindDevice(param,resultCallback);
+    }
+     function kuailian(){ 
+          var param = {lkey:"1431417384774757443",shopno:"100010",pos:"B"};
+          var resultCallback = function(ret, err){
+          document.getElementById("activity_result").innerHTML = ret.callback;
+     }  
+          uzmoduledemo.kuailian(param,resultCallback);
+    }
+    function welcomeIndex(){
+    	var param={uid:"1431417384774757443",lkey:"1431417384774757443",pos:"L",cardNo:"cradNo",money:"0.01",phone:"phone",name:"name",shopno:"100010",url:"bank_gs",acctNo:"6222023202044460979"}
+    	var resultCallback=function(ret,err){
+    		document.getElementById("activity_result").innerHTML = ret.callback;
+    	}
+    	uzmoduledemo.welcomeIndex(param,resultCallback);
+    }
+  </script>
+</head>
+<body>
+    <div id="wrap">
+        <div id="main"> 
+            <div  >
+            <input type="button" onclick="kuailian()" value="快联" /><br><br>
+            <input type="button" onclick="bindDevice()" value="绑定设备" /><br><br>
+             <input type="button" onclick="addCard()" value="添加银行卡" /><br><br>
+              <input type="button" onclick="Signature()" value="画板"  /><br><br>
+             <input type="button" onclick="topUpPay()" value="我的钱包充值" /><br><br>          
+             <input type="button" onclick="querymoney()" value="余额查询" /><br><br> 
+            
+             <input type="button" onclick="addCardPayments()" value="添加信用卡" /><br><br>
+             <input type="button" onclick="timelyAccountTopUp()" value="及时到账充值" /><br><br>
+             
+              <input type="button" onclick="creditCardPayment()" value="信用卡还款" /><br><br>
+              <input type="button" onclick="telPhonePayment()" value="话费充值" /><br><br>                  
+              <input type="button" onclick="tradnsferAccountsPayment()" value="转账汇款" /><br><br>      
+              <input type="button" onclick="addTimelyAccount()" value="及时到账" /><br><br>
+              <input type="button" onclick="welcomeIndex()" value="欢迎页面"/><br><br>  
+              <div id="activity_result" style="width:100%;word-wrap: break-word;word-break: normal;"></div><br><br>      
+            </div>
+
+        </div>   
+    </div>
+</body>
+</html>

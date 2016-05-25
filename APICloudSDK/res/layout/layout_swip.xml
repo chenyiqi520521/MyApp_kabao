@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+    <include layout="@layout/top_up_not_head"/>
+     <include layout="@layout/titile_1"
+         android:visibility="gone" />
+    <TextView
+        android:id="@+id/tv_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="18dip"
+        android:text="尝试连接设备...."
+        android:visibility="gone"
+        />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="8dip"
+        android:paddingLeft="5dip"
+        android:paddingRight="5dip" 
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/img_shuaka"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone"
+            />
+    </RelativeLayout>
+    
+    
+    
+
+</LinearLayout>

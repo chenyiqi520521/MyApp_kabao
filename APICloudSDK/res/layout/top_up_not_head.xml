@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal|center_vertical"
+    android:background="#FAFBFC" >
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <ImageView
+            android:id="@+id/iv_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cash" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/txt_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="100dp"
+                android:text="请插入卡头"
+                android:textColor="#4c4b4b"
+                android:textSize="18sp" />
+
+            <ProgressBar
+                android:id="@+id/pb"
+                android:layout_width="80px"
+                android:layout_height="80px"
+                android:indeterminateBehavior="repeat"
+                android:indeterminateDrawable="@drawable/load3_rotate"
+                android:indeterminateOnly="true"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="30dip"
+                android:layout_marginTop="230dip"
+                android:text="1.请保持设备电量充足"
+                android:textColor="#4c4b4b"
+                android:visibility="gone" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/tv_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="30dip"
+                android:layout_marginTop="5dip"
+                android:text="2.请保持手机网络畅通"
+                android:textColor="#4c4b4b"
+                android:visibility="gone" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/tv_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="25dip"
+                android:padding="5dp"
+                android:text="3.如果蓝牙设备打开，没有成功连接上，或搜索不到，请重启蓝牙设备再次连接"
+                android:textColor="#b23b31"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="30dip"
+                android:layout_marginTop="5dip"
+                android:text="4.带有芯片的IC卡请插入使用"
+                android:textColor="#4c4b4b"
+                android:visibility="gone" >
+            </TextView>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_help"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/dianjibangzhu" />
+        
+         <ImageButton
+            android:id="@+id/btn_back2"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:background="@null"
+            
+            android:src="@drawable/white_left_arrow" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/txt_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="30dp"
+        android:background="#E5434344"
+        android:gravity="top"
+        android:paddingBottom="15dip"
+        android:paddingLeft="8dip"
+        android:paddingRight="8dip"
+        android:paddingTop="15dip"
+        android:text="设备连接成功请刷卡"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_search_bl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/black"
+        android:padding="10dip"
+        android:text="重新搜索蓝牙"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

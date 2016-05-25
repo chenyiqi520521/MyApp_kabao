@@ -1,0 +1,3 @@
+本SDK运行环境为Android SDK 5.0及以上
+
+myDemo.zip为SDK中带的模块开发demo导出模块包后的实例。

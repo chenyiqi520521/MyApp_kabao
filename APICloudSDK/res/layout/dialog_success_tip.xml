@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/succes_bg" 
+    android:orientation="vertical"
+    android:gravity="center">
+    <ImageView 
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:src="@drawable/success_tip"
+         android:layout_gravity="center_horizontal"
+         android:layout_marginTop="20dip"/>
+    <TextView 
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="交易成功"
+         android:textColor="#313131"
+         android:textSize="20dip"
+         android:layout_gravity="center_horizontal"
+         android:layout_marginTop="20dip"/>
+    
+     <TextView 
+         android:id="@+id/btn_index"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="返回首页"
+         android:textColor="#E17157"
+         android:textSize="22dip"
+         android:layout_gravity="center_horizontal"
+         android:layout_marginTop="25dip"
+         />
+    <View  android:layout_width="88dip"
+           android:layout_height="2dip"
+           android:layout_gravity="center_horizontal"
+           android:background="#E17157"/>
+     
+    
+    
+
+</LinearLayout>

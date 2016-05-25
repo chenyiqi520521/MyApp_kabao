@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e8e8e8"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_vertical"
+        android:background="@color/kabao" >
+
+        <ImageButton
+            android:id="@+id/ib_return"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:background="@drawable/white_left_arrow" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:text="添加银行卡"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+    
+    <ScrollView 
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:background="#e8e8e8">
+        <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent" 
+             android:background="#e8e8e8"
+             android:orientation="vertical" >
+            <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+     <TextView 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="(建议选择工,中,农,建等银行)"
+            android:textColor="@color/orange"
+            android:layout_marginLeft="20dp"
+            />
+     </LinearLayout>
+     <RelativeLayout
+         android:id="@+id/rl_parentbank"
+         android:layout_width="match_parent"
+         android:layout_height="50dp"
+         android:gravity="center_vertical"
+         android:clickable="true"
+         android:background="@android:color/white">
+       <EditText
+            android:id="@+id/tv_parentbankname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_alignParentLeft="true"
+            android:background="@null"
+            android:ems="10"
+            android:gravity="center_vertical"
+            android:hint="选择银行"
+            android:imeOptions="actionDone"
+            android:maxLength="11"
+            android:maxLines="1"
+            android:paddingLeft="20dp"
+            android:singleLine="true"
+            android:textColor="#aaa4a4"
+            android:textColorHint="#aaa4a4"
+            android:editable="false"
+            android:textSize="14sp"/>
+       <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:src="@drawable/left"
+            android:layout_alignParentRight="true"
+            />
+         
+     </RelativeLayout>
+     <TextView 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="开户行分支行"
+            android:layout_marginLeft="20dp"
+            android:textColor="#4c4b4b"
+            android:layout_marginTop="10dip"
+            />
+     <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="2dp"
+        android:background="@android:color/white">
+          <Button
+            android:id="@+id/btn_search"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/kabao"
+            android:text="检索"
+            android:layout_alignParentRight="true"
+            android:textColor="@android:color/white" />
+         <EditText
+                android:id="@+id/ed_search"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_toLeftOf="@id/btn_search"
+                android:background="@null"
+                android:ems="10"
+                android:gravity="center_vertical"
+                android:hint="请输入支行或分行检索,如:西湖支行"
+                android:imeOptions="actionDone"
+                android:maxLength="30"
+                android:maxLines="1"
+                android:paddingLeft="20dp"
+                android:singleLine="true"
+                android:textColor="#aaa4a4"
+                android:textColorHint="#aaa4a4"
+                android:textSize="14sp" />
+     </RelativeLayout>
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/white" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:text="卡号:"
+            android:textColor="#4c4b4b" />
+
+        <EditText
+            android:id="@+id/ed_crad"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:ems="10"
+            android:hint="请刷卡取号"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="#aaa4a4"
+            android:textColorHint="#aaa4a4"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/txt_crad"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:text="获取卡号"
+            android:textColor="#737171" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/bank_crad"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="20dp"
+            android:gravity="center_vertical"
+            android:paddingTop="10dp"
+            android:text=""
+            android:textColor="#777676"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/white" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:text="姓名:"
+            android:textColor="#4c4b4b"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/ed_crad_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:ems="10"
+            android:imeOptions="actionDone"
+            android:maxLength="11"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="#aaa4a4"
+            android:textColorHint="#aaa4a4"
+            android:textSize="14sp" />
+    </LinearLayout>
+  <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/white" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:text="身份证号:"
+            android:textColor="#4c4b4b"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/ed_idcard_num"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:ems="10"
+            android:imeOptions="actionDone"
+            android:maxLength="20"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="#aaa4a4"
+            android:textColorHint="#aaa4a4"
+            android:textSize="14sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/white" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:text="手机号:"
+            android:textColor="#4c4b4b"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/ed_phone_num"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:ems="10"
+            android:hint="请输入手机号"
+            android:imeOptions="actionDone"
+            android:maxLength="11"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="#aaa4a4"
+            android:textColorHint="#aaa4a4"
+            android:textSize="14sp" />
+    </LinearLayout>  
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/white" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:text="开户银行:"
+            android:textColor="#4c4b4b"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/ed_crad_institutions"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:ems="10"
+            android:hint="请输入持卡所属银行机构"
+            android:imeOptions="actionDone"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="#aaa4a4"
+            android:textColorHint="#aaa4a4"
+            android:textSize="14sp" />
+    </LinearLayout>
+     
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/btn_ok"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/kabao"
+            android:text="确定"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+        </LinearLayout>
+        
+    </ScrollView>
+
+    
+
+</LinearLayout>

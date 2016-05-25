@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/se_f4f4f4"
+    android:orientation="vertical" >
+
+    <include layout="@layout/titile_1" />
+    
+    <TextView
+            android:id="@+id/btnSearch"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="22dp"
+            android:background="@color/kabao"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="搜索蓝牙设备"
+             />
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="请从下方选择设备:"
+            android:layout_marginLeft="22dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+        />
+       <ProgressBar
+            android:id="@+id/pg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="22dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone"
+           />
+    </RelativeLayout>
+    
+    <ListView 
+        android:id="@+id/lv_device"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:layout_weight="1"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginBottom="15dip"
+        android:fadingEdge="none"
+        android:cacheColorHint="#00000000"
+        android:scrollbars="none"
+        android:divider="@null"
+        android:choiceMode="singleChoice">
+        
+    </ListView>
+
+   
+
+        <TextView
+            android:id="@+id/btnConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="22dp"
+            android:background="@color/kabao"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="确定"
+             />
+    
+
+</LinearLayout>

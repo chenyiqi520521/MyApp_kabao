@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#e8e8e8"
+     >
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:gravity="center"
+        android:background="@color/kabao"
+        >
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="关于我们"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            />
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="80dip"
+        android:layout_marginTop="70dip"
+        android:orientation="vertical"
+        >
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dip"
+            android:text="卡宝移动客户端(android)"
+            />
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dip"
+            android:layout_marginBottom="10dip"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="20dip"
+            android:background="#ffffff"
+            >
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dip"
+                android:layout_gravity="center_vertical"
+                android:text="1.0.0"
+                />
+        </LinearLayout>
+    </LinearLayout>
+    
+   <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="80dip"
+        android:layout_marginTop="30dip"
+        android:orientation="vertical"
+        >
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dip"
+            android:text="客服电话"
+            />
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dip"
+            android:layout_marginBottom="10dip"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="20dip"
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            >
+            <RelativeLayout 
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                >
+
+            <ImageView
+                android:id="@+id/iv_aboutphone"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/about_phone" />
+
+            <TextView
+                android:id="@+id/tv_phoneno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="19dp"
+                android:text="400-877-8571" />
+                
+            </RelativeLayout>
+            
+
+        </LinearLayout>
+    </LinearLayout>
+	
+    <Button
+        android:id="@+id/btn_return" 
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:layout_marginTop="50dip"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:text="返回"
+        android:gravity="center"
+        android:background="@color/kabao"
+        />
+</LinearLayout>

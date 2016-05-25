@@ -1,0 +1,12 @@
+{
+	modules:[
+		{
+		    name:'myDemo',
+		    class:'com.apicloud.moduleDemo.APIModuleDemo'
+		},
+		{
+		    name:'listener',
+		    class:'com.apicloud.eventdemo.EasDelegate'
+		}
+	]
+}

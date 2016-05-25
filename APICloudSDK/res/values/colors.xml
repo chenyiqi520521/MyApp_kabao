@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="kabao">#ff543f</color>
+    <color name="query">#E17157</color>
+    <color name="btn_exit">#EA518A</color>
+    <color name="tx_normal">#111111</color>
+    <color name="share_cb">#C5C5C5</color>
+    <color name="load_bg">#A5000000</color>
+    <color name="save_btn_normal">#89BB50</color>
+    <color name="save_btn_press">#76A441</color>
+     <color name="rippelColor">#FFFFFF</color>
+    <!-- 壁纸空间页面 -->
+    <color name="share_tx">#515151</color>
+    <!-- 个人中心页面 -->
+    <color name="line">#EDEDED</color>
+    <color name="info_font">#363636</color>
+    <color name="info_left">#6E6E6E</color>
+    <color name="album_chose">#33000000</color>
+    <color name="se_f4f4f4">#FFf4f4f4</color>
+    <!-- 首页 -->
+    
+    <color name="index_top_press">#EEEEEE</color>
+    <color name="vp_select">#F6327E</color>
+    <color name="vp_normal">#848484</color>
+    <color name="vp_v_normal">#FFFFFF</color>
+    <!-- 自定义相册界面 -->
+    <color name="camera_normal">#404040</color>
+    <color name="camera_press">#EA518A</color>
+    <color name="album_list_bg">#2D2D2D</color>
+    <color name="pic_num_color">#B3FFFFFF</color>
+    <color name="new_top">#2D2D2D</color>
+    <color name="new_diy_bg">#404040</color>
+    
+    
+    <color name="exhi_border">#e72e02</color>
+    <color name="textColorHint">#FFD7D7D5</color>
+    <color name="textTopTitle">#FF2B525C</color>
+    
+    
+    <color name="half_selected">#4c000000</color>
+    <color name="navpage">#FFFFFFFF</color>
+    <color name="list_devider_color">#FFF2F2F2</color>
+   
+    <color name="actionbar_titile_color">#FF333333</color>
+    <color name="tab_bg">#FFF1F1F1</color>
+    <color name="tab_bg_p">#88F1F1F1</color>
+    <color name="hint_text_color_dark_bg">#FF484C4C</color>
+    <color name="actionbar_selector_color">#4D000000</color>
+    <color name="white_color_disable">#7FFFFFFF</color>
+    
+    <color name="half_alpha_black">#7F000000</color>
+    <color name="dark_alpha_black">#CC000000</color>
+    <color name="darker_alpha_black">#DD000000</color>
+    
+    <color name="graybg">#FFEFEFF4</color>
+    
+   
+    <color name="about_item">#33000000</color>
+    
+    
+    <color name="holo_blue">#FF33E5B5</color>
+    
+    <color name="comment_son_item">#F1F1F1</color>
+    <color name="comment_dialog">#878787</color>
+    <color name="tab_text_color">#FF000000</color>
+    <color name="tab_text_color_focused">#FF0079FF</color>
+    
+    <color name="customBg">#FFEFEFEF</color>
+    <color name="appTitleColor">#FF333333</color>
+    <color name="appTitleBg">#FFFFFFFF</color>
+    
+    <color name="logout_text_color">#f05e61</color>
+    <color name="logout_bg_color">#dedede</color>
+    
+    <color name="text_color">#e72e02</color>
+    <color name="login_text_color">#b9b9b9</color>
+    <color name="reply_color">#FF0079FF</color>
+    <color name="reply_name_color">#FF666666</color>
+    <color name="reply_time_color">#FF999999</color>
+    
+    <color name="cut_line_color">#c6c6c6</color>
+    
+    <color name="designerview_bg">#f7f7f7</color>
+    <!-- 提交按钮的颜色 -->
+    <color name="submit_text_color_n">#c6c6c6</color>
+    <color name="submit_text_color_s">#fff</color>
+    
+    <color name="lwp_item_select">#55000000</color>
+    
+    <color name="setting_text_enable">#333333</color>
+    <color name="setting_text_unenable">#333333</color>
+    
+    <color name="custom_btn_n">#f0f0f0</color>
+    <color name="custom_btn_s">#0079ff</color>
+    
+    <color name="horizontal_text_s">#f05e65</color>
+    <color name="horizontal_text_n">#fff</color>
+    
+    <color name="search_item_bg_s">#f2f2f2</color>
+    
+    <color name="cancel_text_n">#000</color>
+    <color name="cancel_text_s">#ccc</color>
+    
+     <color name="wallpaper_opt_text_n">#666</color>
+    <color name="loginbg">#EFEFEF</color>
+    <color name="white">#ffffffff</color>
+    <color name="white_btn">#66ffffff</color>
+    <color name="black">#ff000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="main_bg_color">#f6f6f6</color>
+    <color name="gray">#ececed</color>
+    <!-- 紫色 -->
+    <color name="purple">#FFA736DC</color>
+    <!-- 橙色 -->
+    <color name="orange">#FFE97445</color>
+    <color name="sld_item">#0c212b</color>
+    <color name="sld_title">#121a2a</color>
+    <color name="sld_divid">#1a2933</color>
+    <color name="softinfo_type_bg">#fff3f3f3</color>
+    <color name="title_selected">#0a91ef</color>
+
+    <!-- 应用大赏的一些字的颜色 -->
+    <color name="sign_task_bg">#c1b7ad</color>
+    <color name="sign_text_color">#77665c</color>
+    <color name="sign_day_info_text_color">#949494</color>
+    <color name="sign_award_text_color">#1c9917</color>
+    <color name="sign_yellow_color">#f7c936</color>
+    <color name="sign_red_color">#dd4418</color>
+    <color name="task_info_color">#4B4B4B</color>
+    <color name="task_page_color">#64584c</color>
+    <color name="task_day_middle_bg">#0E8DB1</color>
+    <color name="task_day_page_color">#64584c</color>
+    <color name="task_day_buttom_color">#e1e0e0</color>
+    <color name="task_day_left_text_color">#585858</color>
+    <color name="task_day_right_text_color">#523405</color>
+    <color name="task_day_sign_text_color">#E2334B</color>
+    <color name="task_day_count_text_color">#434343</color>
+    <color name="task_day_calendar_black_color">#737373</color>
+    <color name="task_day_calendar_gray_color">#C0C0C0</color>
+    <color name="task_day_today_reward_color">#D3D3D3</color>
+    
+    
+    <color name="softinfo_text_color">#ff626262</color>
+    <color name="login_button_gray_color">#5D5D5D</color>
+    <color name="mgray">#808080</color>
+    <color name="blue">#0b8fff</color>
+    <color name="guid_bg">#006f8b</color>
+    
+    <!-- 四版 我的 -->
+    <color name="minehead_bg">#2caebc</color>
+    <color name="minehead_line">#1c6a72</color>
+    <color name="myscore_bg">#1f7983</color>
+    <color name="mine_layout_bg">#f6f6f6</color>
+    <color name="mine_list_line_bg">#eeeeee</color>
+    <color name="mine_list_text">#161616</color>
+    <!-- cecece dedede  d5e3ef -->
+    <color name="list_press_col">#d5e3ef</color>
+    <color name="user_login_tip_tv_col">#6b6b6b</color>
+    <color name="user_login_edit_tv_col">#8f8f8f</color>
+    <color name="user_tip_tv_col">#8b8b8b</color>
+    
+    
+    <color name="easy_3d">#88000000</color>
+    
+    <color name="tm">#00000000</color>
+    
+    
+    <color name="diy_btn_press">#808080</color>
+    
+</resources>
