@@ -97,8 +97,8 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="30dp"
             android:background="@drawable/dianjibangzhu" />
-        
-         <ImageButton
+
+        <ImageButton
             android:id="@+id/btn_back2"
             android:layout_width="80dp"
             android:layout_height="40dp"
@@ -106,7 +106,6 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
             android:background="@null"
-            
             android:src="@drawable/white_left_arrow" />
     </FrameLayout>
 

@@ -60,7 +60,7 @@ public class AddNewCardActivity extends BasicActivity implements OnClickListener
 	private LoginBean loginBean;
 	public static final String MOBILE = "18602123569";
 	public static final String PWD = "65727647";
-	public static final String BANK_SHOPNO = "10131001";
+	public static final String BANK_SHOPNO = "10010001";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
@@ -203,24 +203,9 @@ public class AddNewCardActivity extends BasicActivity implements OnClickListener
 				}
 				if(s.error.equals("0")){
 					Toast.makeText(getApplicationContext(), "添加成功", Toast.LENGTH_LONG).show();
-					final boolean needResult = true;
-					if(needResult){
-						Intent resultData = new Intent();
-						JSONObject json = new JSONObject();
-						try {
-							if(s.mainCard.equals("1")){//表示是主卡
-								json.put("mainCard", s.mainCard);
-							}else{
-								json.put("mainCard", s.mainCard);
-							}
-						} catch (JSONException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						resultData.putExtra("callback", json.toString());
-						setResult(RESULT_OK, resultData);
+					
 						finish();
-					}
+					
 				}else if(s.error.equals("3")){
 					Toast.makeText(AddNewCardActivity.this, "该卡已存在", Toast.LENGTH_SHORT).show();
 				}else if(s.error.equals("1")){

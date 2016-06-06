@@ -180,7 +180,7 @@ public class AddNewCreditActivity extends BasicActivity implements OnClickListen
 							public void run() {
 								// TODO Auto-generated method stub
 								super.run();
-								LoginBean loginBean = controller.doLogin("18602123569", "65727647", "10131001");
+								LoginBean loginBean = controller.doLogin("18602123569", "65727647", "10010001");
 								String key = loginBean.error;
 							    codeResult = controller.getSms(AddNewCreditActivity.this, phoneNo, key, iHandler);
 							}
@@ -226,7 +226,7 @@ public class AddNewCreditActivity extends BasicActivity implements OnClickListen
 					public void run() {
 						// TODO Auto-generated method stub
 						super.run();
-						LoginBean loginBean = controller.doLogin("18602123569", "65727647", "10131001");
+						LoginBean loginBean = controller.doLogin("18602123569", "65727647", "10010001");
 						final String key = loginBean.error;
 						MsgPush msg = controller.pushCard(AddNewCreditActivity.this, cardNo, cardName, MyController.CREDIT_CARD, key, idNo, phoneNo, smsNo, null, resultHandler);
 						handleAddCreBack(msg);

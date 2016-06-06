@@ -12,4 +12,5 @@
     <string name="browser_exitdialog_msg">退出提示</string>
     <string name="browser_dialog_error">错误提示</string>
     <string name="browser_init_error">程序不完整</string>
+    <string name="change_bank_card"><u>切换银行卡</u></string>
 </resources>

@@ -35,9 +35,11 @@ import com.apicloud.module.CardBean;
 import com.apicloud.module.CardBean.DataBean;
 import com.apicloud.module.CreditCardBean;
 import com.apicloud.module.LoginBean;
+import com.apicloud.module.MainBean;
 import com.apicloud.module.MsgBean;
 import com.apicloud.module.MsgPush;
 import com.apicloud.module.MsgValidation;
+import com.apicloud.module.PersonalBean;
 import com.apicloud.module.ReChargeStyleBean;
 import com.apicloud.module.RechargeItemBean;
 import com.apicloud.util.HttpTools;
@@ -1229,6 +1231,7 @@ public class MyController {
 		List<NameValuePair> nv = new ArrayList<NameValuePair>();
 		nv.add(new BasicNameValuePair("lkey", uid));
 		Log.v("param1",  "lkey-->get-"+uid);
+		//"Api/Validationcode"
 		String strResult = HttpTools.getHttpRequestString(nv, Common.URL + "Api/Validationcode");
 		Log.v("param1", strResult + "");
 		if (!isEmpty(strResult)) {
@@ -1265,6 +1268,7 @@ public class MyController {
 				jsonObject = new JSONObject(strResult);
 				if(jsonObject.has("RspCd")){
 					String rspCode=jsonObject.getString("RspCd")+"";
+					Log.e("验证验证码", jsonObject.getString("RspCd")+"");
 					if(rspCode.equals("0")){
 						flag=true;
 					}
@@ -1319,6 +1323,77 @@ public class MyController {
 			try {
 				JSONObject json = new JSONObject(result);
 				loginBean.error=json.getString("error");
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return loginBean;
+	}
+	/**
+	 * 请求设为主卡请求
+	 */
+	public MainBean doRequestMain(String lkey,String cardId){
+		MainBean mainBean = new MainBean();
+		List<NameValuePair> nv = new ArrayList<NameValuePair>();
+		nv.add(new BasicNameValuePair("lkey", lkey));
+		nv.add(new BasicNameValuePair("delids", cardId));
+		String resultStr = HttpTools.getHttpRequestString(nv, Common.URL +"Api/setcard");
+		if(!isEmpty(resultStr)){
+			try {
+				JSONObject json = new JSONObject(resultStr);
+				mainBean.error = json.getString("error");
+				mainBean.msg = json.getString("msg");
+				Log.v("setCard------error",json.getString("error"));
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		return mainBean;
+	}
+	/**
+	 * 请求个人信息(例余额)
+	 * @param lkey
+	 * @return
+	 */
+	public PersonalBean requestMember(String lkey){
+		PersonalBean pb = new PersonalBean();
+		List<NameValuePair> nv = new ArrayList<NameValuePair>();
+		nv.add(new BasicNameValuePair("lkey", lkey));
+		String resultStr = HttpTools.getHttpRequestString(nv, Common.URL +"Api/member");
+		Log.e("个人信息返回数据", "---->"+resultStr);
+		if(!isEmpty(resultStr)){
+			try {
+				JSONObject json = new JSONObject(resultStr);
+				JSONObject json2 = json.getJSONObject("data");
+				pb.balance = json2.getString("balance");
+				Log.v("banlance------>",json2.getString("balance")+"");
+				pb.verify = json2.optString("verify");
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				Log.v("banlance------error-->",e.getMessage()+"");
+				e.printStackTrace();
+			}
+		}
+		return pb;
+	}
+	
+	public LoginBean doWithDraw(String lkey,String cardId,String amount){
+		LoginBean loginBean = new LoginBean();
+		List<NameValuePair> nv = new ArrayList<NameValuePair>();
+		nv.add(new BasicNameValuePair("lkey", lkey));
+		nv.add(new BasicNameValuePair("cardid", cardId));
+		nv.add(new BasicNameValuePair("amount", amount));
+		Log.v("提现请求参数_--->", lkey+","+cardId+","+amount);
+		String resultStr = HttpTools.getHttpRequestString(nv, Common.URL+"Api/postduration");
+		if(!isEmpty(resultStr)){
+			try {
+				JSONObject json = new JSONObject(resultStr);
+				
+				loginBean.error = json.getString("error");
+				loginBean.msg = json.getString("msg");
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

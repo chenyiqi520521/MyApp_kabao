@@ -617,7 +617,7 @@ public class NewSwipActivity extends Activity implements OnClickListener{
 	
 	@Override
 	protected void onStop() {
-		// TODO Auto-generated method stub
+		unregisterReceiver(discoveryReciever);
 		super.onStop();
 		
 		//api.closeDev();

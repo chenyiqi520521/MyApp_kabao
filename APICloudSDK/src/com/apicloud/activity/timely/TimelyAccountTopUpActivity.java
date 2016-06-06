@@ -176,9 +176,10 @@ public class TimelyAccountTopUpActivity extends BaseActivity implements OnClickL
 	ScheduledThreadPoolExecutor exec = new ScheduledThreadPoolExecutor(1);
 	TextView tv_word;
 	boolean isFirstAdd = true;
-   ImageView iv_card_1;
-   
-   TextView tv_delete;
+	ImageView iv_card_1;
+
+	TextView tv_delete;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -200,65 +201,66 @@ public class TimelyAccountTopUpActivity extends BaseActivity implements OnClickL
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		
+
 	}
+
 	/**
 	 * 
 	 * TODO模块化以后获取数据完毕的提交处理
-	   @param ob  //不同模块不同的bean
-	   2015年12月14日
-	   void
+	 * 
+	 * @param ob
+	 *           
 	 */
-	public void ModelSubmit(Object ob){
-		//如果选择的是联迪设备
-		if(CHOSE_DEVICE.equals(UICommon.WFT_DEVICE)||CHOSE_DEVICE.equals(UICommon.LANDY_DEVICE)||CHOSE_DEVICE.equals(UICommon.CFT_DEVICE)||CHOSE_DEVICE.equals(UICommon.BBPOS_IC_DEVICE)){
-			LandyTackMsg landybean=(LandyTackMsg)ob;
-			Log.v("landy1", "cardno--tp"+landybean.cardNo);
-			//ed_crad.setText(landybean.cardNo+"");
-			//设备实例
+	public void ModelSubmit(Object ob) {
+		// 如果选择的是联迪设备
+		if (CHOSE_DEVICE.equals(UICommon.WFT_DEVICE) || CHOSE_DEVICE.equals(UICommon.LANDY_DEVICE) || CHOSE_DEVICE.equals(UICommon.CFT_DEVICE) || CHOSE_DEVICE.equals(UICommon.BBPOS_IC_DEVICE)) {
+			LandyTackMsg landybean = (LandyTackMsg) ob;
+			Log.v("landy1", "cardno--tp" + landybean.cardNo);
+			// ed_crad.setText(landybean.cardNo+"");
+			// 设备实例
 			landySetBean(landybean);
-			/*topUpDialog.show();
-			topUpDialog.setOnclickListener(this);
-			handler.sendEmptyMessage(1);
-			topUpDialog.ed_crad_pass.setVisibility(View.VISIBLE);*/
+			/*
+			 * topUpDialog.show(); topUpDialog.setOnclickListener(this);
+			 * handler.sendEmptyMessage(1);
+			 * topUpDialog.ed_crad_pass.setVisibility(View.VISIBLE);
+			 */
 			String getNo = txt_crad_number.getText().toString().replaceAll(".{4}(?!$)", "$0 ");
-			 getNo=getNo.replace(" ", "");
-			 String swipcardno=landybean.cardNo;
-			 swipcardno=swipcardno.replace(" ", "");
-			 //String get_account=(getIntent().getStringExtra("acctNo")).replaceAll(".{4}(?!$)", "$0 ");
-		     if(!swipcardno.equals(getNo)){
-		          Toast.makeText(TimelyAccountTopUpActivity.this,"请刷上面认证过的信用卡",Toast.LENGTH_SHORT).show();
-		     }else{
-		    	 btn_ok.setText("确定");
-		    	 goToHanwriting(creditCardBean, msgBean,ed_crad_amount.getText().toString().trim());
-		     }
-			
+			getNo = getNo.replace(" ", "");
+			String swipcardno = landybean.cardNo;
+			swipcardno = swipcardno.replace(" ", "");
+			// String
+			// get_account=(getIntent().getStringExtra("acctNo")).replaceAll(".{4}(?!$)",
+			// "$0 ");
+			if (!swipcardno.equals(getNo)) {
+				Toast.makeText(TimelyAccountTopUpActivity.this, "请刷上面认证过的信用卡", Toast.LENGTH_SHORT).show();
+			} else {
+				btn_ok.setText("确定");
+				goToHanwriting(creditCardBean, msgBean, ed_crad_amount.getText().toString().trim());
+			}
+
 		}
-		
-		
+
 	}
-	void landySetBean(LandyTackMsg landybean){
-		creditCardBean=new CreditCardBean();
-		creditCardBean.ksn=landybean.ksn;
-		creditCardBean.encWorkingKey=landybean.enworkingKey+"";
-		creditCardBean.acctNoT2=landybean.track2+"";
-		creditCardBean.acctNoT3=landybean.track3+"";
-		creditCardBean.ic=landybean.Data55+"";
-		creditCardBean.pointService=landybean.pointService+"";
-		creditCardBean.acctNo=landybean.cardNo+"";
-		creditCardBean.cardEXPDate=landybean.expireDate+"";
-		creditCardBean.cardSN="1";
-		if(CHOSE_DEVICE.equals(UICommon.BBPOS_IC_DEVICE)||CHOSE_DEVICE.equals(UICommon.WFT_DEVICE)){
-			creditCardBean.cardSN=landybean.cardSn+"";
+
+	void landySetBean(LandyTackMsg landybean) {
+		creditCardBean = new CreditCardBean();
+		creditCardBean.ksn = landybean.ksn;
+		creditCardBean.encWorkingKey = landybean.enworkingKey + "";
+		creditCardBean.acctNoT2 = landybean.track2 + "";
+		creditCardBean.acctNoT3 = landybean.track3 + "";
+		creditCardBean.ic = landybean.Data55 + "";
+		creditCardBean.pointService = landybean.pointService + "";
+		creditCardBean.acctNo = landybean.cardNo + "";
+		creditCardBean.cardEXPDate = landybean.expireDate + "";
+		creditCardBean.cardSN = "1";
+		if (CHOSE_DEVICE.equals(UICommon.BBPOS_IC_DEVICE) || CHOSE_DEVICE.equals(UICommon.WFT_DEVICE)) {
+			creditCardBean.cardSN = landybean.cardSn + "";
 		}
-		creditCardBean.pin=landybean.pinBlock+"";
-		creditCardBean.transAmt=landybean.amount+"";
-		
-		
-		
-	
-		
+		creditCardBean.pin = landybean.pinBlock + "";
+		creditCardBean.transAmt = landybean.amount + "";
+
 	}
+
 	public void onResume() {
 		super.onResume();
 		MobclickAgent.onResume(this);
@@ -350,9 +352,9 @@ public class TimelyAccountTopUpActivity extends BaseActivity implements OnClickL
 		cardno = getIntent().getStringExtra("cardNo");
 		uname = getIntent().getStringExtra("name");
 		needResult = getIntent().getBooleanExtra("needResult", false);
-        iv_card_1=(ImageView) findViewById(UZResourcesIDFinder.getResIdID("iv_crad_1"));
+		iv_card_1 = (ImageView) findViewById(UZResourcesIDFinder.getResIdID("iv_crad_1"));
 		iv_icon = (ImageView) findViewById(UZResourcesIDFinder.getResIdID("iv_icon"));
-		tv_delete=(TextView) findViewById(UZResourcesIDFinder.getResIdID("tv_delete"));
+		tv_delete = (TextView) findViewById(UZResourcesIDFinder.getResIdID("tv_delete"));
 		tv_delete.setOnClickListener(this);
 		// tv_pay_one = (TextView)
 		// findViewById(UZResourcesIDFinder.getResIdID("tv_pay_one"));
@@ -376,7 +378,7 @@ public class TimelyAccountTopUpActivity extends BaseActivity implements OnClickL
 		btn_refresh = (Button) findViewById(UZResourcesIDFinder.getResIdID("btn_refresh"));
 		btn_refresh.setOnClickListener(this);
 		et_code = (EditText) findViewById(UZResourcesIDFinder.getResIdID("et_code"));
-		 setEtCodeParent(et_code,uid);
+		setEtCodeParent(et_code, uid);
 		layout_card_select = (RelativeLayout) findViewById(UZResourcesIDFinder.getResIdID("layout_card_select"));
 		layout_card_select.setOnClickListener(this);
 
@@ -413,7 +415,7 @@ public class TimelyAccountTopUpActivity extends BaseActivity implements OnClickL
 		// txt_crad_number.setText(replaceString(getIntent().getStringExtra("acctNo")).replaceAll(".{4}(?!$)",
 		// "$0 "));
 		txt_crad_name.setText(getIntent().getStringExtra("name"));
-	    txt_cash_crad.setText(getIntent().getStringExtra("cardNo").replaceAll(".{4}(?!$)","$0 "));
+		txt_cash_crad.setText(getIntent().getStringExtra("cardNo").replaceAll(".{4}(?!$)", "$0 "));
 		// String url = getIntent().getStringExtra("url");
 		// if (url == null) {
 		// url = "bank_yl";
@@ -423,19 +425,20 @@ public class TimelyAccountTopUpActivity extends BaseActivity implements OnClickL
 		// iv_crad.setImageBitmap(bitmap);
 		pd = new LoadingDialog(TimelyAccountTopUpActivity.this);
 		pd.setCancelable(false);// 设置进度条是否可以按退回键取消
-		pd.setCanceledOnTouchOutside(false);// 设置点击进度对话框外的区域对话框不消失		
-		//pd.show();
+		pd.setCanceledOnTouchOutside(false);// 设置点击进度对话框外的区域对话框不消失
+		// pd.show();
 		needShowMoeny = true;
 		amount_et = ed_crad_amount;
 		initParentView();
 		initHeadDialog();
 		initSwipParam();
-		}
-		void initSwipParam(){
-			fromAct=UICommon.TimelyAaccountTopUp;
-			whatDo=SwipApi.WHATDO_SWIPER;
-			cur_Ac=this;
-		}
+	}
+
+	void initSwipParam() {
+		fromAct = UICommon.TimelyAaccountTopUp;
+		whatDo = SwipApi.WHATDO_SWIPER;
+		cur_Ac = this;
+	}
 
 	private List<DataBean> testData() {
 		List<DataBean> list = new ArrayList<CardBean.DataBean>();
@@ -449,21 +452,22 @@ public class TimelyAccountTopUpActivity extends BaseActivity implements OnClickL
 		return list;
 	}
 
-	void filterMap(){
-		List<Map<String, String>> tempList=new ArrayList<Map<String,String>>();
-		Map<String,String> tempMap=new HashMap<String, String>();
-		for(int i=0;i<items.size();i++){
-			Map<String, String> item=items.get(i);
-			String cardNo1=item.get("card_no")+"";
-			Log.v("param2", "88-->"+cardNo1);
-			if(!tempMap.containsKey(cardNo1)){
+	void filterMap() {
+		List<Map<String, String>> tempList = new ArrayList<Map<String, String>>();
+		Map<String, String> tempMap = new HashMap<String, String>();
+		for (int i = 0; i < items.size(); i++) {
+			Map<String, String> item = items.get(i);
+			String cardNo1 = item.get("card_no") + "";
+			Log.v("param2", "88-->" + cardNo1);
+			if (!tempMap.containsKey(cardNo1)) {
 				tempMap.put(cardNo1, cardNo1);
 				tempList.add(item);
 			}
 		}
-		items=tempList;
-		
+		items = tempList;
+
 	}
+
 	private void addCardName() {
 		// List<DataBean> list = testData();
 		List<DataBean> list = cardBean.getData();
@@ -475,20 +479,20 @@ public class TimelyAccountTopUpActivity extends BaseActivity implements OnClickL
 				item.put("card_name", list.get(i).getCardname());
 				item.put("card_no", list.get(i).getCardno());
 				item.put("uname", list.get(i).getUname());
-				item.put("id", list.get(i).getId()+"");
-				Log.v("param2", "url0-->"+list.get(i).getCardimg());
+				item.put("id", list.get(i).getId() + "");
+				Log.v("param2", "url0-->" + list.get(i).getCardimg());
 				items.add(item);
-				
+
 			}
 			if (isFirstAdd) {
-				 Log.v("param2", "3--->first");
+				Log.v("param2", "3--->first");
 				txt_crad_name.setText(items.get(0).get("uname"));
 				txt_crad_number.setText(items.get(0).get("card_no"));
 				txt_crad_number.setTag(items.get(0).get("id"));
 				if (!TextUtils.isEmpty(items.get(0).get("card_img"))) {
-					//new Thread
+					// new Thread
 					Picasso.with(TimelyAccountTopUpActivity.this).load(items.get(0).get("card_img")).into(iv_crad_show);
-					
+
 				}
 				isFirstAdd = false;
 			}
@@ -496,9 +500,9 @@ public class TimelyAccountTopUpActivity extends BaseActivity implements OnClickL
 			for (int i = 0; i < items.size(); i++) {
 				if (txt_crad_number.getText().toString().trim().equals(items.get(i).get("card_no"))) {
 					if (!TextUtils.isEmpty(items.get(i).get("card_img"))) {
-						Log.v("param2", "url-->"+items.get(i).get("card_img"));
-						Log.v("param2", "url-->"+items.get(i).get("card_no"));
-						
+						Log.v("param2", "url-->" + items.get(i).get("card_img"));
+						Log.v("param2", "url-->" + items.get(i).get("card_no"));
+
 					}
 					items.remove(i);
 					break;
@@ -506,7 +510,7 @@ public class TimelyAccountTopUpActivity extends BaseActivity implements OnClickL
 			}
 		} else {
 			layout_card_select.setVisibility(View.GONE);
-			
+
 		}
 	}
 
@@ -514,31 +518,45 @@ public class TimelyAccountTopUpActivity extends BaseActivity implements OnClickL
 		new Thread() {
 			public void run() {
 				cardBean = controller2.getCardInfo(TimelyAccountTopUpActivity.this, uid, "rcard");
-                
+
 				// if (items != null && items.size() > 0) {
 				handler.post(new Runnable() {
 
 					@Override
 					public void run() {
 						try {
-							//pd.dismiss();
-						 if(cardBean==null){
-							 layout_card_select.setVisibility(View.GONE);
-							 Log.v("param2", "null--->size"+items.size());
-							 }else{
-							    addCardName();
-							    Log.v("param2", "2--->size"+items.size());
-								if(cardBean!=null&&cardBean.getZp()!=null){
-									txt_cash_crad.setText(cardBean.getZp().replaceAll(".{4}(?!$)","$0 "));
+							// pd.dismiss();
+							if (cardBean == null) {
+								layout_card_select.setVisibility(View.GONE);
+								Log.v("param2", "null--->size" + items.size());
+							} else {
+								addCardName();
+								Log.v("param2", "2--->size" + items.size());
+								if (cardBean != null && cardBean.getZp() != null) {
+									txt_cash_crad.setText(cardBean.getZp().replaceAll(".{4}(?!$)", "$0 "));
 								}
-								
+
 								Picasso.with(TimelyAccountTopUpActivity.this).load(cardBean.getZp_img()).into(iv_card_1);
 								if (items != null && items.size() > 0) {
 									filterMap();
-									Log.v("param2", "url4-->"+items.size());
-									/*final SimpleAdapter adapter = new SimpleAdapter(TimelyAccountTopUpActivity.this, items, UZResourcesIDFinder.getResLayoutID("item_card"), new String[] { "card_img", "card_name", "card_no" }, new int[] { UZResourcesIDFinder.getResIdID("iv_crad"), UZResourcesIDFinder.getResIdID("txt_crad_name"), UZResourcesIDFinder.getResIdID("txt_crad_number") });
-									cardNameList.setAdapter(adapter);*/
-									TimeListAdapter adapter=new TimeListAdapter(TimelyAccountTopUpActivity.this, items);
+									Log.v("param2", "url4-->" + items.size());
+									/*
+									 * final SimpleAdapter adapter = new
+									 * SimpleAdapter
+									 * (TimelyAccountTopUpActivity.this, items,
+									 * UZResourcesIDFinder
+									 * .getResLayoutID("item_card"), new
+									 * String[] { "card_img", "card_name",
+									 * "card_no" }, new int[] {
+									 * UZResourcesIDFinder
+									 * .getResIdID("iv_crad"),
+									 * UZResourcesIDFinder
+									 * .getResIdID("txt_crad_name"),
+									 * UZResourcesIDFinder
+									 * .getResIdID("txt_crad_number") });
+									 * cardNameList.setAdapter(adapter);
+									 */
+									TimeListAdapter adapter = new TimeListAdapter(TimelyAccountTopUpActivity.this, items);
 									cardNameList.setAdapter(adapter);
 									cardNameList.setOnItemClickListener(new OnItemClickListener() {
 
@@ -549,34 +567,31 @@ public class TimelyAccountTopUpActivity extends BaseActivity implements OnClickL
 											txt_crad_name.setText(items.get(position).get("uname"));
 											txt_crad_number.setText(items.get(position).get("card_no"));
 											txt_crad_number.setTag(items.get(position).get("id"));
-											Log.v("param2", "click-->"+items.get(position).get("card_img"));
+											Log.v("param2", "click-->" + items.get(position).get("card_img"));
 											if (!TextUtils.isEmpty(url)) {
 												Picasso.with(TimelyAccountTopUpActivity.this).load(url).into(iv_crad_show);
 											}
-											
+
 											items.clear();
 											mPopupWindow.dismiss();
 											addCardName();
-											
 
 										}
 									});
 
-									
 								}
 								mPopupWindow = new PopupWindow(popupView, AbsListView.LayoutParams.MATCH_PARENT, AbsListView.LayoutParams.WRAP_CONTENT, true);
 								mPopupWindow.setTouchable(true);
 								mPopupWindow.setOutsideTouchable(true);
 								mPopupWindow.setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));
 
-							
-						 }
+							}
 						} catch (Exception e) {
 							// TODO: handle exception
-							Log.v("param2", "url5 error-->"+e.getMessage());
+							Log.v("param2", "url5 error-->" + e.getMessage());
 						}
-						
-						}//
+
+					}//
 				});
 
 			};
@@ -613,7 +628,7 @@ public class TimelyAccountTopUpActivity extends BaseActivity implements OnClickL
 									if (msgBean.RspCd.equals("0")) {// 删除成功
 										Toast.makeText(TimelyAccountTopUpActivity.this, "删除成功!", Toast.LENGTH_SHORT).show();
 										items.clear();
-										isFirstAdd=true;
+										isFirstAdd = true;
 										getPaymentsData();
 									} else {
 										Toast.makeText(TimelyAccountTopUpActivity.this, "删除失败！" + msgBean.RspMsg, Toast.LENGTH_SHORT).show();
@@ -643,17 +658,17 @@ public class TimelyAccountTopUpActivity extends BaseActivity implements OnClickL
 	private void initGasPopupWindow() {
 		try {
 			Log.v("param2", "1");
-			/*pd=new ProgressDialog(TimelyAccountTopUpActivity.this);
-			pd.setMessage("正在请求数据...");
-			pd.setCancelable(false);*/
-			//pd.show();
+			/*
+			 * pd=new ProgressDialog(TimelyAccountTopUpActivity.this);
+			 * pd.setMessage("正在请求数据..."); pd.setCancelable(false);
+			 */
+			// pd.show();
 			popupView = getLayoutInflater().inflate(UZResourcesIDFinder.getResLayoutID("ppw_card_name"), null);
 			cardNameList = (ListView) popupView.findViewById(UZResourcesIDFinder.getResIdID("watchView"));
 			getPaymentsData();
 		} catch (Exception e) {
-			Log.v("param2", "poperror-->"+e.getMessage());
+			Log.v("param2", "poperror-->" + e.getMessage());
 		}
-		
 
 	}
 
@@ -676,12 +691,12 @@ public class TimelyAccountTopUpActivity extends BaseActivity implements OnClickL
 	@SuppressWarnings("static-access")
 	@Override
 	public void onClick(View v) {
-		if(v==tv_delete){
-			String deleteCradId=txt_crad_number.getTag().toString().trim()+"";
-			if(deleteCradId.length()>0){
+		if (v == tv_delete) {
+			String deleteCradId = txt_crad_number.getTag().toString().trim() + "";
+			if (deleteCradId.length() > 0) {
 				deleteCard(deleteCradId);
 			}
-			
+
 		}
 		// 返回
 		if (v == ib_return) {
@@ -702,18 +717,18 @@ public class TimelyAccountTopUpActivity extends BaseActivity implements OnClickL
 		}
 		// 确定
 		if (v == btn_ok) {
-			final String code1=et_code_parent.getText().toString()+"";
-			if(code1.length()>=0){
-				new Thread(){
+			final String code1 = et_code_parent.getText().toString() + "";
+			if (code1.length() >= 0) {
+				new Thread() {
 					public void run() {
-						if(!controller2.validateCode(code1, uid)){
+						if (!controller2.validateCode(code1, uid)) {
 							Tip("验证码有误");
 							return;
 						}
 					};
 				}.start();
 			}
-			if (btn_ok.getText().toString().contains("请刷卡")||btn_ok.getText().toString().contains("确认支付")) {
+			if (btn_ok.getText().toString().contains("请刷卡") || btn_ok.getText().toString().contains("确认支付")) {
 				if (Controller.isEmpty(ed_crad_amount.getText().toString().trim())) {
 					Toast.makeText(getApplicationContext(), "金额不能为空!", Toast.LENGTH_LONG).show();
 					return;
@@ -765,14 +780,14 @@ public class TimelyAccountTopUpActivity extends BaseActivity implements OnClickL
 			startActivity(intent);
 		}
 
-		//绑定的银行卡列表弹出
+		// 绑定的银行卡列表弹出
 		if (v == layout_card_select) {
 			try {
 				mPopupWindow.showAsDropDown(v);
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
-			
+
 		}
 
 		if (v == btn_refresh) {
@@ -813,6 +828,7 @@ public class TimelyAccountTopUpActivity extends BaseActivity implements OnClickL
 	 */
 	@SuppressWarnings("static-access")
 	private void doOk() {
+		
 		if ((CHOSE_DEVICE.equals("A") || CHOSE_DEVICE.equals("D")) && Controller.isEmpty(topUpDialog.ed_crad_pass.getText().toString().trim())) {
 			Toast.makeText(TimelyAccountTopUpActivity.this, "密码不能为空", Toast.LENGTH_LONG).show();
 			return;
@@ -840,7 +856,7 @@ public class TimelyAccountTopUpActivity extends BaseActivity implements OnClickL
 			}
 			if (locationInfo != null && locationInfo.length() > 0) {
 				creditCardBean.gps = locationInfo;
-				// submit();
+				submit();
 				goToHanwriting(creditCardBean, msgBean, ed_crad_amount.getText().toString().trim());
 			} else {
 				Tip("定位失败，请检查网络等，重新进入页面定位");
@@ -856,7 +872,7 @@ public class TimelyAccountTopUpActivity extends BaseActivity implements OnClickL
 			public void run() {
 				// TODO Auto-generated method stub
 				super.run();
-				
+
 				Log.v("cz1", "location->" + locationInfo);
 				if (locationInfo != null && locationInfo.length() > 0) {
 					creditCardBean.gps = locationInfo;
@@ -867,8 +883,7 @@ public class TimelyAccountTopUpActivity extends BaseActivity implements OnClickL
 					return;
 
 				}
-				
-				
+
 				PinSecurityImpl impl = new PinSecurityImpl();
 				String pin = "";
 				if (CHOSE_DEVICE.equals("A") || CHOSE_DEVICE.equals("D")) {
@@ -887,14 +902,15 @@ public class TimelyAccountTopUpActivity extends BaseActivity implements OnClickL
 					}
 				}
 				creditCardBean.lkey = getIntent().getStringExtra("uid");
-				if(CHOSE_DEVICE.equals("A")||CHOSE_DEVICE.equals("B")||CHOSE_DEVICE.equals("C")||CHOSE_DEVICE.equals("D")){
+				if (CHOSE_DEVICE.equals("A") || CHOSE_DEVICE.equals("B") || CHOSE_DEVICE.equals("C") || CHOSE_DEVICE.equals("D")) {
 					creditCardBean.transAmt = Common.conversionPrice(ed_crad_amount.getText().toString().trim());
 				}
-				if(CHOSE_DEVICE.equals(UICommon.WFT_DEVICE)||CHOSE_DEVICE.equals(UICommon.LANDY_DEVICE)||CHOSE_DEVICE.equals(UICommon.CFT_DEVICE)||CHOSE_DEVICE.equals(UICommon.AF_DEVICE)||CHOSE_DEVICE.equals(UICommon.BBPOS_IC_DEVICE)){
-					creditCardBean.transAmt=Common.conversionPrice(creditCardBean.transAmt+"");
+				if (CHOSE_DEVICE.equals(UICommon.WFT_DEVICE) || CHOSE_DEVICE.equals(UICommon.LANDY_DEVICE) || CHOSE_DEVICE.equals(UICommon.CFT_DEVICE) || CHOSE_DEVICE.equals(UICommon.AF_DEVICE) || CHOSE_DEVICE.equals(UICommon.BBPOS_IC_DEVICE)) {
+					creditCardBean.transAmt = Common.conversionPrice(creditCardBean.transAmt + "");
 				}
-				//creditCardBean.transAmt = Common.conversionPrice(ed_crad_amount.getText().toString().trim());
-				creditCardBean.cardNo = txt_cash_crad.getText().toString()+"";//收款账户
+				// creditCardBean.transAmt =
+				// Common.conversionPrice(ed_crad_amount.getText().toString().trim());
+				creditCardBean.cardNo = txt_cash_crad.getText().toString() + "";// 收款账户
 				/*
 				 * String pin=""; if(CHOSE_DEVICE.equals("A")){
 				 * pin=topUpDialog.ed_crad_pass.getText().toString().trim();
@@ -909,8 +925,8 @@ public class TimelyAccountTopUpActivity extends BaseActivity implements OnClickL
 				 * bankCrad.EncWorkingKey); } catch (Exception e) {
 				 * Log.v("pw2",e.getMessage()+""); }
 				 */
-                //付款账户
-				creditCardBean.acctNo = txt_crad_number.getText().toString().replaceAll(".{4}(?!$)", "$0 ").replace(" ","");
+				// 付款账户
+				creditCardBean.acctNo = txt_crad_number.getText().toString().replaceAll(".{4}(?!$)", "$0 ").replace(" ", "");
 				creditCardBean.type = "1";
 				runOnUiThread(new Runnable() {
 
@@ -1048,7 +1064,7 @@ public class TimelyAccountTopUpActivity extends BaseActivity implements OnClickL
 			@Override
 			public void run() {
 				String getNo = txt_crad_number.getText().toString().replaceAll(".{4}(?!$)", "$0 ");
-				if(getNo==null||getNo.length()<=0){
+				if (getNo == null || getNo.length() <= 0) {
 					Tip("还未绑定信用卡");
 					return;
 				}
@@ -1058,10 +1074,11 @@ public class TimelyAccountTopUpActivity extends BaseActivity implements OnClickL
 				// String
 				// get_account=(getIntent().getStringExtra("acctNo")).replaceAll(".{4}(?!$)",
 				// "$0 ");
-				Log.v("param2", "swip-->"+swipcardno);
-				Log.v("param2", "txt-->"+getNo);
-				/*Tip("swip-->"+swipcardno);
-				Tip("txt-->"+getNo);*/
+				Log.v("param2", "swip-->" + swipcardno);
+				Log.v("param2", "txt-->" + getNo);
+				/*
+				 * Tip("swip-->"+swipcardno); Tip("txt-->"+getNo);
+				 */
 				if (!swipcardno.equals(getNo)) {
 					Toast.makeText(TimelyAccountTopUpActivity.this, "请刷上面认证过的信用卡", Toast.LENGTH_SHORT).show();
 					// 重新刷卡
@@ -1199,9 +1216,8 @@ public class TimelyAccountTopUpActivity extends BaseActivity implements OnClickL
 			if (swipResult.getThirdTrackData() != null) {
 				bankCrad.accNoT3 = SetTrackData(UnpackTrack(swipResult.getThirdTrackData())).toUpperCase();
 			} /*
-				 * else{ cardHeadDialog.dismiss(); Tip("获取磁道信息失败，请重新刷卡");
-				 * return; }
-				 */
+			 * else{ cardHeadDialog.dismiss(); Tip("获取磁道信息失败，请重新刷卡"); return; }
+			 */
 			// controller.startReadingPwd("请输入密码", new DeviceListener());
 			bankCrad.ic = "0";
 			bankCrad.EncWorkingKey = getHex_workkey();

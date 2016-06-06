@@ -24,7 +24,8 @@ public class UICommon {
 	public static int AddNewCardActivity=12;
 	public static int BindEquipmentActivity=13;
 	public static int AddNewCreditActivity=14;
-	
+	public static int RealTimeActivity=15;
+	public static int TopUpThreeActivity = 16;
 	
 	//设备编号
 	//设备编号

@@ -33,7 +33,7 @@ public class BindEquipmentFinalActivity extends Activity implements OnClickListe
 	public static final String BIND_ADDRESS = "bind_address";
 	public static final String MOBILE = "18602123569";
 	public static final String PWD = "65727647";
-	public static final String BANK_SHOPNO = "10131001";
+	public static final String BANK_SHOPNO = "10010001";
 	private LoginBean loginBean;
 	public static final String WELCOME = "welcomeIndex";
 	@Override

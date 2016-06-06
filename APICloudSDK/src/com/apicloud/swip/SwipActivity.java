@@ -184,6 +184,7 @@ public class SwipActivity extends Activity implements OnClickListener{
 		if(chose_device.equals(UICommon.CFT_DEVICE)){
 			  im_shuaka.setBackgroundResource(UZResourcesIDFinder.getResDrawableID("cft_1"));
 		}
+		//执行
 		if(chose_device.equals(UICommon.LANDY_DEVICE)||chose_device.equals(UICommon.AF_DEVICE)){
 			  tv_tip.setText("尝试连接蓝牙");
 			  im_shuaka.setBackgroundResource(UZResourcesIDFinder.getResDrawableID("ly_cash_landy"));
