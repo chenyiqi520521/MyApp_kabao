@@ -329,6 +329,24 @@
              android:screenOrientation="portrait"
              android:theme="@android:style/Theme.NoTitleBar"
              ></activity>
+          
+           <!-- 登陆界面 -->
+         
+          <activity 
+             android:name="com.apicloud.activity.LoginActivity"
+             android:configChanges="orientation|locale"
+             android:screenOrientation="portrait"
+             android:theme="@android:style/Theme.NoTitleBar"
+             ></activity>
+          <!-- 注册界面 -->
+         
+          <activity 
+             android:name="com.apicloud.activity.RegisterActivity"
+             android:configChanges="orientation|locale"
+             android:screenOrientation="portrait"
+             android:theme="@android:style/Theme.NoTitleBar"
+             ></activity>
+          
         <service android:name="com.location.LocationSvc" >
         </service>
     </application>

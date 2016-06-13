@@ -1,6 +1,8 @@
 package com.apicloud.module;
 
-public class LoginBean {
+import java.io.Serializable;
+
+public class LoginBean implements Serializable{
 	public String msg;
 	public String error;
 	public String getMsg() {

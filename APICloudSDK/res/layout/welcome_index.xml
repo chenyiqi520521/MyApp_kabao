@@ -11,6 +11,7 @@
         android:layout_height="200dip" >
 
         <RelativeLayout
+            android:id="@+id/rl_background"
             android:layout_width="fill_parent"
             android:layout_height="200dip"
             android:background="@drawable/welcome_rain" >

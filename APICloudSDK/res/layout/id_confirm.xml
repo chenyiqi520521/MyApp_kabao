@@ -24,6 +24,7 @@
                 android:textSize="20sp" />
 
             <ImageView
+                android:id="@+id/iv_return"
                 android:layout_width="wrap_content"
                 android:layout_height="30dip"
                 android:layout_alignParentLeft="true"

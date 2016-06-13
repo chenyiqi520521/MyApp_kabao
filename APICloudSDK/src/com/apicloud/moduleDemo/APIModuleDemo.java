@@ -10,6 +10,7 @@ import android.util.Log;
 import com.apicloud.activity.AddCradActivity;
 import com.apicloud.activity.BindDeviceActivity;
 import com.apicloud.activity.KuaiLainActivity;
+import com.apicloud.activity.LoginActivity;
 import com.apicloud.activity.QueryMoneyActivity;
 import com.apicloud.activity.TradnsferAccountsActivity;
 import com.apicloud.activity.WelcomeIndexActivity;
@@ -295,7 +296,7 @@ public class APIModuleDemo extends UZModule {
 		intent.putExtra("GPS", moduleContext.optString("GPS"));
 		intent.putExtra("idnum", moduleContext.optString("idnum"));
 		intent.putExtra("phone",moduleContext.optString("phone"));
-		intent.setClass(getContext(),WelcomeIndexActivity.class);
+		intent.setClass(getContext(),LoginActivity.class);
 		startActivityForResult(intent,ACTIVITY_REQUEST_CODE_A);
 		
 	}

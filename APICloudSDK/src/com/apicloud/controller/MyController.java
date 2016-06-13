@@ -34,6 +34,7 @@ import com.apicloud.module.BankBean;
 import com.apicloud.module.CardBean;
 import com.apicloud.module.CardBean.DataBean;
 import com.apicloud.module.CreditCardBean;
+import com.apicloud.module.DetailBean;
 import com.apicloud.module.LoginBean;
 import com.apicloud.module.MainBean;
 import com.apicloud.module.MsgBean;
@@ -42,6 +43,8 @@ import com.apicloud.module.MsgValidation;
 import com.apicloud.module.PersonalBean;
 import com.apicloud.module.ReChargeStyleBean;
 import com.apicloud.module.RechargeItemBean;
+import com.apicloud.module.RegisterBean;
+import com.apicloud.module.RegisterFinalBean;
 import com.apicloud.util.HttpTools;
 
 /**
@@ -96,21 +99,22 @@ public class MyController {
 		return msgValidation;
 
 	}
+
 	/**
 	 * 设备绑定接口
 	 */
-	public MsgBean bindDevice(String ksn,String shopno,String lkey) {
+	public MsgBean bindDevice(String ksn, String shopno, String lkey) {
 		MsgBean msgBean = null;
-		
+
 		List<NameValuePair> nv = new ArrayList<NameValuePair>();
-		
-		nv.add(new BasicNameValuePair("ksn",ksn+""));
-		nv.add(new BasicNameValuePair("shopno", shopno+""));
-		nv.add(new BasicNameValuePair("lkey", lkey+""));
-		nv.add(new BasicNameValuePair("V",2+""));
-		
+
+		nv.add(new BasicNameValuePair("ksn", ksn + ""));
+		nv.add(new BasicNameValuePair("shopno", shopno + ""));
+		nv.add(new BasicNameValuePair("lkey", lkey + ""));
+		nv.add(new BasicNameValuePair("V", 2 + ""));
+
 		String strResult = HttpTools.getHttpRequestString(nv, Common.URL + "B2CPay/inksn");
-		Log.v("push1", strResult+"");
+		Log.v("push1", strResult + "");
 		if (!isEmpty(strResult)) {
 			JSONObject jsonObject = null;
 			try {
@@ -122,7 +126,7 @@ public class MyController {
 				} catch (Exception e) {
 					// TODO: handle exception
 				}
-				} catch (JSONException e) {
+			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
@@ -130,6 +134,7 @@ public class MyController {
 		return msgBean;
 
 	}
+
 	public static final int RESPONSE_NORMAL = 0;
 	public static final int RESPONSE_FAIL = 1;
 
@@ -340,8 +345,8 @@ public class MyController {
 				stuate = new MsgPush();
 				stuate.error = jsonObject.getString("error");
 
-				if(jsonObject.has("RspMsg")){
-					stuate.RspMsg=jsonObject.getString("RspMsg");
+				if (jsonObject.has("RspMsg")) {
+					stuate.RspMsg = jsonObject.getString("RspMsg");
 				}
 				if (jsonObject.has("mainCard")) {
 					Log.v("push1", "has");
@@ -831,8 +836,8 @@ public class MyController {
 		nv.add(new BasicNameValuePair("pin", cardBean.pin));
 		nv.add(new BasicNameValuePair("V", 2 + ""));
 		nv.add(new BasicNameValuePair("code", code));
-		nv.add(new BasicNameValuePair("username", cardBean.kuailian_username+""));
-		nv.add(new BasicNameValuePair("pwd", cardBean.kuailian_pwd+""));
+		nv.add(new BasicNameValuePair("username", cardBean.kuailian_username + ""));
+		nv.add(new BasicNameValuePair("pwd", cardBean.kuailian_pwd + ""));
 		String strResult = HttpTools.getHttpRequestString(nv, "http://121.43.231.170/klapi2/Seercf/Rech");
 		Log.v("param", "response>" + strResult + "");
 		if (!isEmpty(strResult)) {
@@ -841,19 +846,19 @@ public class MyController {
 				jsonObject = new JSONObject(strResult);
 				msgBean = new MsgBean();
 				try {
-					if(jsonObject.has("msg")){
+					if (jsonObject.has("msg")) {
 						msgBean.RspMsg = jsonObject.getString("msg");
 					}
-					if(jsonObject.has("RspMsg")){
+					if (jsonObject.has("RspMsg")) {
 						msgBean.RspMsg = jsonObject.getString("RspMsg");
 					}
-					if(jsonObject.has("RspCd")){
+					if (jsonObject.has("RspCd")) {
 						msgBean.RspCd = jsonObject.getString("RspCd");
 					}
-					if(jsonObject.has("ReferNO")){
+					if (jsonObject.has("ReferNO")) {
 						msgBean.ReferNO = jsonObject.getString("ReferNO");
 					}
-				
+
 				} catch (Exception e) {
 
 				}
@@ -879,6 +884,7 @@ public class MyController {
 		}
 		return msgBean;
 	}
+
 	/**
 	 * consume:(消费/支付接口). <br/>
 	 * 
@@ -914,7 +920,7 @@ public class MyController {
 		Log.v("param", "gps->" + cardBean.gps + "");
 		Log.v("param", "pin->" + cardBean.pin + "");
 		Log.v("param", "code->" + code + "");
-		
+
 		List<NameValuePair> nv = new ArrayList<NameValuePair>();
 		nv.add(new BasicNameValuePair("pointService", cardBean.pointService));
 		nv.add(new BasicNameValuePair("acctNo", cardBean.acctNo.replace(" ", "")));
@@ -932,7 +938,7 @@ public class MyController {
 		nv.add(new BasicNameValuePair("pin", cardBean.pin));
 		nv.add(new BasicNameValuePair("V", 2 + ""));
 		nv.add(new BasicNameValuePair("code", code));
-		
+
 		String strResult = HttpTools.getHttpRequestString(nv, Common.URL + "B2CPay/Consume");
 		Log.v("param", "response>" + strResult + "");
 		if (!isEmpty(strResult)) {
@@ -941,19 +947,19 @@ public class MyController {
 				jsonObject = new JSONObject(strResult);
 				msgBean = new MsgBean();
 				try {
-					if(jsonObject.has("msg")){
+					if (jsonObject.has("msg")) {
 						msgBean.RspMsg = jsonObject.getString("msg");
 					}
-					if(jsonObject.has("RspMsg")){
+					if (jsonObject.has("RspMsg")) {
 						msgBean.RspMsg = jsonObject.getString("RspMsg");
 					}
-					if(jsonObject.has("RspCd")){
+					if (jsonObject.has("RspCd")) {
 						msgBean.RspCd = jsonObject.getString("RspCd");
 					}
-					if(jsonObject.has("ReferNO")){
+					if (jsonObject.has("ReferNO")) {
 						msgBean.ReferNO = jsonObject.getString("ReferNO");
 					}
-				
+
 				} catch (Exception e) {
 
 				}
@@ -979,6 +985,7 @@ public class MyController {
 		}
 		return msgBean;
 	}
+
 	/**
 	 * consume:(消费/支付接口). <br/>
 	 * 
@@ -1115,10 +1122,10 @@ public class MyController {
 				List<RechargeItemBean> itemList = new ArrayList<RechargeItemBean>();
 				for (int i = 0; i < jsonArray.length(); i++) {
 					RechargeItemBean rechargeItemBean = new RechargeItemBean();
-					String name = new JSONObject(jsonArray.getString(i).toString()).getString("name")+"";
-					String p_link = new JSONObject(jsonArray.getString(i).toString()).getString("p_link")+"";
-					String open = new JSONObject(jsonArray.getString(i).toString()).getString("open")+"";
-					String bizCode=new JSONObject(jsonArray.getString(i).toString()).getString("bizCode")+"";
+					String name = new JSONObject(jsonArray.getString(i).toString()).getString("name") + "";
+					String p_link = new JSONObject(jsonArray.getString(i).toString()).getString("p_link") + "";
+					String open = new JSONObject(jsonArray.getString(i).toString()).getString("open") + "";
+					String bizCode = new JSONObject(jsonArray.getString(i).toString()).getString("bizCode") + "";
 					rechargeItemBean.setName(name);
 					rechargeItemBean.setP_link(p_link);
 					rechargeItemBean.setOpen(open);
@@ -1154,7 +1161,7 @@ public class MyController {
 		nv.add(new BasicNameValuePair("lkey", key));
 		nv.add(new BasicNameValuePair("type", type));
 		String strResult = HttpTools.getHttpRequestString(nv, Common.URL + "Api/xcard");
-	    Log.v("param1", strResult + "");
+		Log.v("param1", strResult + "");
 		if (!isEmpty(strResult)) {
 			JSONObject jsonObject = null;
 			try {
@@ -1162,11 +1169,11 @@ public class MyController {
 				int error = jsonObject.getInt("error");
 				cardBean.setError(error);
 				if (error == 0) {
-					String zp = jsonObject.getString("zp")+"";
+					String zp = jsonObject.getString("zp") + "";
 					cardBean.setZp(zp);
-					String zp_img=jsonObject.getString("zp_name")+"";
-					cardBean.setZp_img(Common.URL+"Tpl/Public/image/"+zp_img);
-					
+					String zp_img = jsonObject.getString("zp_name") + "";
+					cardBean.setZp_img(Common.URL + "Tpl/Public/image/" + zp_img);
+
 					JSONArray jsonArray = jsonObject.getJSONArray("data");
 					List<DataBean> itemList = new ArrayList<DataBean>();
 					for (int i = 0; i < jsonArray.length(); i++) {
@@ -1186,8 +1193,8 @@ public class MyController {
 						String ctime = new JSONObject(jsonArray.getString(i).toString()).getString("ctime");
 						String utime = new JSONObject(jsonArray.getString(i).toString()).getString("utime");
 						String status = new JSONObject(jsonArray.getString(i).toString()).getString("status");
-						String cardImg=new JSONObject(jsonArray.getString(i).toString()).getString("cardimg");
-						String uName=new JSONObject(jsonArray.getString(i).toString()).getString("uname");
+						String cardImg = new JSONObject(jsonArray.getString(i).toString()).getString("cardimg");
+						String uName = new JSONObject(jsonArray.getString(i).toString()).getString("uname");
 						dataBean.setId(id);
 						dataBean.setUserno(userno);
 						dataBean.setCardno(cardno);
@@ -1204,12 +1211,12 @@ public class MyController {
 						dataBean.setUtime(utime);
 						dataBean.setStatus(status);
 						dataBean.setUname(uName);
-						dataBean.setCardimg(Common.URL+"Tpl/Public/image/"+cardImg);
+						dataBean.setCardimg(Common.URL + "Tpl/Public/image/" + cardImg);
 						itemList.add(dataBean);
 					}
 					cardBean.setData(itemList);
-				}else{
-					cardBean=null;
+				} else {
+					cardBean = null;
 				}
 
 			} catch (JSONException e) {
@@ -1230,8 +1237,8 @@ public class MyController {
 		String result_code = "-1";
 		List<NameValuePair> nv = new ArrayList<NameValuePair>();
 		nv.add(new BasicNameValuePair("lkey", uid));
-		Log.v("param1",  "lkey-->get-"+uid);
-		//"Api/Validationcode"
+		Log.v("param1", "lkey-->get-" + uid);
+		// "Api/Validationcode"
 		String strResult = HttpTools.getHttpRequestString(nv, Common.URL + "Api/Validationcode");
 		Log.v("param1", strResult + "");
 		if (!isEmpty(strResult)) {
@@ -1252,28 +1259,28 @@ public class MyController {
 	/**
 	 * 验证验证码
 	 */
-	public boolean validateCode(String code,String uid){
-		boolean flag=false;
+	public boolean validateCode(String code, String uid) {
+		boolean flag = false;
 		List<NameValuePair> nv = new ArrayList<NameValuePair>();
 		nv.add(new BasicNameValuePair("lkey", uid));
 		nv.add(new BasicNameValuePair("code", code));
-		Log.v("param1",  "lkey-->v-"+uid);
-		Log.v("param1",  "code-->v-"+code);
+		Log.v("param1", "lkey-->v-" + uid);
+		Log.v("param1", "code-->v-" + code);
 		String strResult = HttpTools.getHttpRequestString(nv, Common.URL + "Api/validate");
 		Log.v("param1", strResult + "");
-		
+
 		if (!isEmpty(strResult)) {
 			JSONObject jsonObject = null;
 			try {
 				jsonObject = new JSONObject(strResult);
-				if(jsonObject.has("RspCd")){
-					String rspCode=jsonObject.getString("RspCd")+"";
-					Log.e("验证验证码", jsonObject.getString("RspCd")+"");
-					if(rspCode.equals("0")){
-						flag=true;
+				if (jsonObject.has("RspCd")) {
+					String rspCode = jsonObject.getString("RspCd") + "";
+					Log.e("验证验证码", jsonObject.getString("RspCd") + "");
+					if (rspCode.equals("0")) {
+						flag = true;
 					}
 				}
-				
+
 			} catch (JSONException e) {
 
 				// TODO Auto-generated catch block
@@ -1282,6 +1289,7 @@ public class MyController {
 		}
 		return flag;
 	}
+
 	/**
 	 * 删除银行卡
 	 * 
@@ -1308,90 +1316,21 @@ public class MyController {
 		}
 		return msgBean;
 	}
+
 	/**
 	 * 登陆请求
 	 */
-	public LoginBean doLogin(String mobile,String psd,String shopno){
+	public LoginBean doLogin(String mobile, String psd, String shopno) {
 		LoginBean loginBean = new LoginBean();
 		List<NameValuePair> nv = new ArrayList<NameValuePair>();
-		nv.add(new BasicNameValuePair("mobile",mobile+""));
+		nv.add(new BasicNameValuePair("mobile", mobile + ""));
 		nv.add(new BasicNameValuePair("zpwd", psd));
 		nv.add(new BasicNameValuePair("shopno", shopno));
-		String result = HttpTools.getHttpRequestString(nv,Common.URL +"Api/LoginSetShop");
-		Log.v("login----->",result +"");
-		if(!isEmpty(result)){
+		String result = HttpTools.getHttpRequestString(nv, Common.URL + "Api/LoginSetShop");
+		Log.v("login----->", result + "");
+		if (!isEmpty(result)) {
 			try {
 				JSONObject json = new JSONObject(result);
-				loginBean.error=json.getString("error");
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		return loginBean;
-	}
-	/**
-	 * 请求设为主卡请求
-	 */
-	public MainBean doRequestMain(String lkey,String cardId){
-		MainBean mainBean = new MainBean();
-		List<NameValuePair> nv = new ArrayList<NameValuePair>();
-		nv.add(new BasicNameValuePair("lkey", lkey));
-		nv.add(new BasicNameValuePair("delids", cardId));
-		String resultStr = HttpTools.getHttpRequestString(nv, Common.URL +"Api/setcard");
-		if(!isEmpty(resultStr)){
-			try {
-				JSONObject json = new JSONObject(resultStr);
-				mainBean.error = json.getString("error");
-				mainBean.msg = json.getString("msg");
-				Log.v("setCard------error",json.getString("error"));
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-		}
-		return mainBean;
-	}
-	/**
-	 * 请求个人信息(例余额)
-	 * @param lkey
-	 * @return
-	 */
-	public PersonalBean requestMember(String lkey){
-		PersonalBean pb = new PersonalBean();
-		List<NameValuePair> nv = new ArrayList<NameValuePair>();
-		nv.add(new BasicNameValuePair("lkey", lkey));
-		String resultStr = HttpTools.getHttpRequestString(nv, Common.URL +"Api/member");
-		Log.e("个人信息返回数据", "---->"+resultStr);
-		if(!isEmpty(resultStr)){
-			try {
-				JSONObject json = new JSONObject(resultStr);
-				JSONObject json2 = json.getJSONObject("data");
-				pb.balance = json2.getString("balance");
-				Log.v("banlance------>",json2.getString("balance")+"");
-				pb.verify = json2.optString("verify");
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				Log.v("banlance------error-->",e.getMessage()+"");
-				e.printStackTrace();
-			}
-		}
-		return pb;
-	}
-	
-	public LoginBean doWithDraw(String lkey,String cardId,String amount){
-		LoginBean loginBean = new LoginBean();
-		List<NameValuePair> nv = new ArrayList<NameValuePair>();
-		nv.add(new BasicNameValuePair("lkey", lkey));
-		nv.add(new BasicNameValuePair("cardid", cardId));
-		nv.add(new BasicNameValuePair("amount", amount));
-		Log.v("提现请求参数_--->", lkey+","+cardId+","+amount);
-		String resultStr = HttpTools.getHttpRequestString(nv, Common.URL+"Api/postduration");
-		if(!isEmpty(resultStr)){
-			try {
-				JSONObject json = new JSONObject(resultStr);
-				
 				loginBean.error = json.getString("error");
 				loginBean.msg = json.getString("msg");
 			} catch (JSONException e) {
@@ -1400,5 +1339,191 @@ public class MyController {
 			}
 		}
 		return loginBean;
+	}
+
+	/**
+	 * 请求设为主卡请求
+	 */
+	public MainBean doRequestMain(String lkey, String cardId) {
+		MainBean mainBean = new MainBean();
+		List<NameValuePair> nv = new ArrayList<NameValuePair>();
+		nv.add(new BasicNameValuePair("lkey", lkey));
+		nv.add(new BasicNameValuePair("delids", cardId));
+		String resultStr = HttpTools.getHttpRequestString(nv, Common.URL + "Api/setcard");
+		if (!isEmpty(resultStr)) {
+			try {
+				JSONObject json = new JSONObject(resultStr);
+				mainBean.error = json.getString("error");
+				mainBean.msg = json.getString("msg");
+				Log.v("setCard------error", json.getString("error"));
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+		return mainBean;
+	}
+
+	/**
+	 * 请求个人信息(例余额)
+	 * 
+	 * @param lkey
+	 * @return
+	 */
+	public PersonalBean requestMember(String lkey) {
+		PersonalBean pb = new PersonalBean();
+		List<NameValuePair> nv = new ArrayList<NameValuePair>();
+		nv.add(new BasicNameValuePair("lkey", lkey));
+		String resultStr = HttpTools.getHttpRequestString(nv, Common.URL + "Api/member");
+		Log.e("个人信息返回数据", "---->" + resultStr);
+		if (!isEmpty(resultStr)) {
+			try {
+				JSONObject json = new JSONObject(resultStr);
+				JSONObject json2 = json.getJSONObject("data");
+				pb.balance = json2.getString("balance");
+				Log.v("banlance------>", json2.getString("balance") + "");
+				pb.verify = json2.optString("verify");
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				Log.v("banlance------error-->", e.getMessage() + "");
+				e.printStackTrace();
+			}
+		}
+		return pb;
+	}
+
+	/**
+	 * 提现请求
+	 * 
+	 * @param lkey
+	 * @param cardId
+	 * @param amount
+	 * @return
+	 */
+	public LoginBean doWithDraw(String lkey, String cardId, String amount) {
+		LoginBean loginBean = new LoginBean();
+		List<NameValuePair> nv = new ArrayList<NameValuePair>();
+		nv.add(new BasicNameValuePair("lkey", lkey));
+		nv.add(new BasicNameValuePair("cardid", cardId));
+		nv.add(new BasicNameValuePair("amount", amount));
+		Log.v("提现请求参数_--->", lkey + "," + cardId + "," + amount);
+		String resultStr = HttpTools.getHttpRequestString(nv, Common.URL + "Api/postduration");
+		if (!isEmpty(resultStr)) {
+			try {
+				JSONObject json = new JSONObject(resultStr);
+
+				loginBean.error = json.getString("error");
+				loginBean.msg = json.getString("msg");
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return loginBean;
+	}
+
+	/**
+	 * 注册时获取短信验证码
+	 * @param pi
+	 * @param mobile
+	 * @return
+	 */
+	public RegisterBean getRegisterCode(String pi, String mobile,String appkey) {
+		RegisterBean bean = new RegisterBean();
+		List<NameValuePair> nv = new ArrayList<NameValuePair>();
+		nv.add(new BasicNameValuePair("pi", pi));
+		nv.add(new BasicNameValuePair("mobile", mobile));
+		nv.add(new BasicNameValuePair("appkey", appkey));
+		String resultStr = HttpTools.getHttpRequestString(nv, Common.URL + "Api/code");
+		Log.v("注册返回值是-->", ""+resultStr.toString());
+		if (!isEmpty(resultStr)) {
+			try {
+				JSONObject json = new JSONObject(resultStr);
+				
+				bean.error = json.getString("error");
+				if(!json.getString("code").isEmpty()){
+					bean.code = json.getString("code");
+				}
+				if(!json.getString("msg").isEmpty()){
+					bean.msg = json.getString("msg");
+				}
+				Log.v("注册短信验证码error-->","值是"+bean.error);
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+		return bean;
+	}
+	
+	/**
+	 * 交易记录
+	 * @param lkey
+	 * @return
+	 */
+
+	public List<DetailBean> gainTradeDetail(String lkey) {
+		List<DetailBean> list = new ArrayList<DetailBean>();
+		List<NameValuePair> nv = new ArrayList<NameValuePair>();
+		nv.add(new BasicNameValuePair("lkey", lkey));
+		String resultStr = HttpTools.getHttpRequestString(nv, Common.URL + "Api/rechlist");
+		if (!isEmpty(resultStr)) {
+			try {
+				JSONObject json = new JSONObject(resultStr);
+				JSONArray jsonArray = json.getJSONArray("data");
+				for (int i = 0; i < jsonArray.length(); i++) {
+					DetailBean detailBean = new DetailBean();
+					JSONArray jsonArray2 = new JSONArray(jsonArray.get(i).toString());
+					for (int j = 0; j < jsonArray2.length(); j++) {
+						JSONObject json2 = new JSONObject(jsonArray2.getJSONObject(i).toString());
+						detailBean.typeName = json2.getString("typename");
+						detailBean.amount = json2.getString("amount");
+						detailBean.date = json2.getString("date");
+						detailBean.name = json2.getString("name");
+						detailBean.pDate = json2.getString("pdate");
+						detailBean.statusName = json2.getString("statusname");
+						list.add(detailBean);
+					}
+
+				}
+
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
+	
+	public RegisterFinalBean goToRegist(String appkey,String mobile,String pos,String code,String pwd,String gps,String key){
+		RegisterFinalBean bean = new RegisterFinalBean();
+		List<NameValuePair> nv = new ArrayList<NameValuePair>();
+		nv.add(new BasicNameValuePair("appkey", appkey));
+		nv.add(new BasicNameValuePair("mobile", mobile));
+		nv.add(new BasicNameValuePair("pos", pos));
+		nv.add(new BasicNameValuePair("code", code));
+		nv.add(new BasicNameValuePair("pwd", pwd));
+		nv.add(new BasicNameValuePair("gps", gps));
+		nv.add(new BasicNameValuePair("key", key));
+		String result = HttpTools.getHttpRequestString(nv, Common.URL+"Api/loginreg");
+		if(!isEmpty(result)){
+			try {
+				JSONObject json = new JSONObject(result);
+				bean.error = json.getString("error");
+				bean.lkey = json.getString("lkey");
+				bean.msg = json.getString("msg");
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		return bean;
+	}
+	public String getBackgroundPhoto(){
+		String result = HttpTools.getHttpRequestString(null, Common.URL+"Api/weather");
+		return result;
 	}
 }

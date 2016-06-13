@@ -43,6 +43,10 @@ public class Common {
 	// public static String URL ="http://app.fxscloudos.com/";
 	// public static String URL = "http://121.43.231.170/klapi/";
 	public static String URL = "http://121.43.231.170/klapi2/";
+	
+	public static final String KABAO_SHOPNO = "10010001";
+	
+	public static final String KABAO_APPKEY = "D";
 
 	// public static String URL = "http://183.129.207.156:7008/B2CPay_V2/";
 	/** 55 域拼装 */

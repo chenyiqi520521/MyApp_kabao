@@ -167,7 +167,7 @@ public class RealTimeActivity extends BasicActivity implements OnClickListener {
 		pd = new LoadingDialog(RealTimeActivity.this);
 		pd.setCancelable(false);// 设置进度条是否可以按退回键取消
 		pd.setCanceledOnTouchOutside(false);// 设置点击进度对话框外的区域对话框不消失
-		// pd.show();
+		pd.show();
 		needShowMoeny = true;
 		amount_et = ed_crad_amount;
 		initParentView();
@@ -263,6 +263,7 @@ public class RealTimeActivity extends BasicActivity implements OnClickListener {
 		popupView = getLayoutInflater().inflate(UZResourcesIDFinder.getResLayoutID("popwindow_creditcard"), null);
 		cardNameLv = (ListView) popupView.findViewById(UZResourcesIDFinder.getResIdID("watchView"));
 		getPaymentsData();
+		pd.dismiss();
 		
 	}
 

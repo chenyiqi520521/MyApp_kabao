@@ -166,5 +166,5 @@
     
     
     <color name="diy_btn_press">#808080</color>
-    
+    <color name="detail_trade_sucess">#00ff00</color>
 </resources>
