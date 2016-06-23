@@ -41,6 +41,7 @@ public class AddNewCreditActivity extends BasicActivity implements OnClickListen
 	private String idNo = "";
 	private String smsNo = "";
 	private ProgressDialog pd; 
+	private String key;
 	/** 如果取消 */
 	int cancel = 2;
 	/** 如果连接失败 */
@@ -68,6 +69,7 @@ public class AddNewCreditActivity extends BasicActivity implements OnClickListen
 		ed_sms_num = (EditText) findViewById(UZResourcesIDFinder.getResIdID("ed_sms_num"));
 		btn_getsms = (Button)findViewById(UZResourcesIDFinder.getResIdID("btn_getsms"));
 		btn_ok = (Button)findViewById(UZResourcesIDFinder.getResIdID("btn_ok"));
+		key = getIntent().getStringExtra("key");
 		setGetCardNum(txt_card_get);
 		btn_getsms.setOnClickListener(this);
 		txt_card_get.setOnClickListener(this);
@@ -179,9 +181,7 @@ public class AddNewCreditActivity extends BasicActivity implements OnClickListen
 							@Override
 							public void run() {
 								// TODO Auto-generated method stub
-								super.run();
-								LoginBean loginBean = controller.doLogin("18602123569", "65727647", "10010001");
-								String key = loginBean.error;
+								
 							    codeResult = controller.getSms(AddNewCreditActivity.this, phoneNo, key, iHandler);
 							}
 						}.start();
@@ -226,8 +226,7 @@ public class AddNewCreditActivity extends BasicActivity implements OnClickListen
 					public void run() {
 						// TODO Auto-generated method stub
 						super.run();
-						LoginBean loginBean = controller.doLogin("18602123569", "65727647", "10010001");
-						final String key = loginBean.error;
+						
 						MsgPush msg = controller.pushCard(AddNewCreditActivity.this, cardNo, cardName, MyController.CREDIT_CARD, key, idNo, phoneNo, smsNo, null, resultHandler);
 						handleAddCreBack(msg);
 					}

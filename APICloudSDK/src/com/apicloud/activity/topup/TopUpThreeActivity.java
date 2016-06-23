@@ -49,7 +49,7 @@ public class TopUpThreeActivity extends TopUpNewActivity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(UZResourcesIDFinder.getResLayoutID("top_up_three"));
-		controller = new MyController(TopUpThreeActivity.this);
+		controller=new MyController(TopUpThreeActivity.this);
 		initView();
 		// 获取支付方式列表
 		getPaymentsList();
@@ -68,6 +68,7 @@ public class TopUpThreeActivity extends TopUpNewActivity {
 		top_ib_return.setOnClickListener(this);
 		top_ll_ok.setOnClickListener(this);
 		chose_device = CHOSE_DEVICE;
+		lkey = getIntent().getStringExtra("key");
 		
 	}
 
@@ -126,10 +127,10 @@ public class TopUpThreeActivity extends TopUpNewActivity {
 		}
 		new Thread() {
 			public void run() {
-				LoginBean loginBean = controller.doLogin("18602123569", "65727647", "10010001");
-				lkey = loginBean.error;
+				
 				setParentCode(null, lkey);
 				// 发起请求，获取银行列表接口
+				Log.v("充值lkey", lkey+"");
 				reChargeStyleBean = controller.rechargeMethod(TopUpThreeActivity.this, lkey);
 				runOnUiThread(new Runnable() {
 

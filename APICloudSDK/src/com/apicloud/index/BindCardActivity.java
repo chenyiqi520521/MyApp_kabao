@@ -174,6 +174,7 @@ public class BindCardActivity extends Activity implements OnClickListener {
 		ib_return = (ImageButton) findViewById(UZResourcesIDFinder.getResIdID("bcib_return"));
 		rl_addCard = (RelativeLayout) findViewById(UZResourcesIDFinder.getResIdID("rl_bcbutton"));
 		showCardList = (ListView) findViewById(UZResourcesIDFinder.getResIdID("lv_showCardList"));
+		key = getIntent().getStringExtra("key");
 		getDataList();
 		pd.dismiss();
 		ib_return.setOnClickListener(this);
@@ -186,8 +187,7 @@ public class BindCardActivity extends Activity implements OnClickListener {
 			public void run() {
 
 				super.run();
-				final LoginBean loginBean = controller.doLogin("18602123569", "65727647", "10010001");
-				key = loginBean.error;
+				
 				cardBean = controller.getCardInfo(BindCardActivity.this, key, "card");
 				handler.post(new Runnable() {
 
@@ -226,6 +226,7 @@ public class BindCardActivity extends Activity implements OnClickListener {
 		}
 		if (v == rl_addCard) {
 			Intent intent = new Intent(BindCardActivity.this, AddNewCardActivity.class);
+			intent.putExtra("key", key);
 			startActivity(intent);
 		}
 

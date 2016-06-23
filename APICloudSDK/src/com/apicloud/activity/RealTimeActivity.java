@@ -154,8 +154,8 @@ public class RealTimeActivity extends BasicActivity implements OnClickListener {
 		txt_cash_card = (TextView) findViewById(UZResourcesIDFinder.getResIdID("txt_cash_crad"));
 		iv_card_ico = (ImageView) findViewById(UZResourcesIDFinder.getResIdID("iv_card_ico"));
 		tv_delete = (TextView) findViewById(UZResourcesIDFinder.getResIdID("tv_delete"));
+		key = getIntent().getStringExtra("key");
 		setGetCardNum(btn_ok);
-		
 		ib_return.setOnClickListener(this);
 		layout_add_card.setOnClickListener(this);
 		btn_refresh.setOnClickListener(this);
@@ -274,8 +274,8 @@ public class RealTimeActivity extends BasicActivity implements OnClickListener {
 
 				super.run();
 
-				final LoginBean loginBean = controller.doLogin("18602123569", "65727647", "10010001");
-				key = loginBean.error;
+				
+				
 				uid = key;
 				getCode(uid);
 				setParentCode(et_code, uid);
@@ -385,6 +385,7 @@ public class RealTimeActivity extends BasicActivity implements OnClickListener {
 	public void onClick(View v) {
 		if (v == layout_add_card) {
 			Intent intent = new Intent(RealTimeActivity.this, AddNewCreditActivity.class);
+			intent.putExtra("key", key);
 			startActivityForResult(intent, REQUEST_ADD_CREDIT);
 		}
 		if (v == ib_return) {

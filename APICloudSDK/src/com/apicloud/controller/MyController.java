@@ -1113,7 +1113,7 @@ public class MyController {
 		nv.add(new BasicNameValuePair("lkey", key));
 		nv.add(new BasicNameValuePair("system", "android"));
 		String strResult = HttpTools.getHttpRequestString(nv, Common.URL + "Api/T1Menu");
-		Log.v("param1", strResult + "");
+		Log.v("充值返回数据", strResult + "");
 		if (!isEmpty(strResult)) {
 			JSONObject jsonObject = null;
 			try {
@@ -1425,30 +1425,31 @@ public class MyController {
 
 	/**
 	 * 注册时获取短信验证码
+	 * 
 	 * @param pi
 	 * @param mobile
 	 * @return
 	 */
-	public RegisterBean getRegisterCode(String pi, String mobile,String appkey) {
+	public RegisterBean getRegisterCode(String pi, String mobile, String appkey) {
 		RegisterBean bean = new RegisterBean();
 		List<NameValuePair> nv = new ArrayList<NameValuePair>();
 		nv.add(new BasicNameValuePair("pi", pi));
 		nv.add(new BasicNameValuePair("mobile", mobile));
 		nv.add(new BasicNameValuePair("appkey", appkey));
 		String resultStr = HttpTools.getHttpRequestString(nv, Common.URL + "Api/code");
-		Log.v("注册返回值是-->", ""+resultStr.toString());
+		Log.v("注册返回值是-->", "" + resultStr.toString());
 		if (!isEmpty(resultStr)) {
 			try {
 				JSONObject json = new JSONObject(resultStr);
-				
+
 				bean.error = json.getString("error");
-				if(!json.getString("code").isEmpty()){
+				if (!json.getString("code").isEmpty()) {
 					bean.code = json.getString("code");
 				}
-				if(!json.getString("msg").isEmpty()){
+				if (!json.getString("msg").isEmpty()) {
 					bean.msg = json.getString("msg");
 				}
-				Log.v("注册短信验证码error-->","值是"+bean.error);
+				Log.v("注册短信验证码error-->", "值是" + bean.error);
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -1457,9 +1458,10 @@ public class MyController {
 		}
 		return bean;
 	}
-	
+
 	/**
 	 * 交易记录
+	 * 
 	 * @param lkey
 	 * @return
 	 */
@@ -1469,15 +1471,17 @@ public class MyController {
 		List<NameValuePair> nv = new ArrayList<NameValuePair>();
 		nv.add(new BasicNameValuePair("lkey", lkey));
 		String resultStr = HttpTools.getHttpRequestString(nv, Common.URL + "Api/rechlist");
+		Log.v("trade_back_data---->", resultStr.toString());
 		if (!isEmpty(resultStr)) {
 			try {
+
 				JSONObject json = new JSONObject(resultStr);
 				JSONArray jsonArray = json.getJSONArray("data");
 				for (int i = 0; i < jsonArray.length(); i++) {
-					DetailBean detailBean = new DetailBean();
 					JSONArray jsonArray2 = new JSONArray(jsonArray.get(i).toString());
 					for (int j = 0; j < jsonArray2.length(); j++) {
-						JSONObject json2 = new JSONObject(jsonArray2.getJSONObject(i).toString());
+						DetailBean detailBean = new DetailBean();
+						JSONObject json2 = new JSONObject(jsonArray2.getJSONObject(j).toString());
 						detailBean.typeName = json2.getString("typename");
 						detailBean.amount = json2.getString("amount");
 						detailBean.date = json2.getString("date");
@@ -1486,7 +1490,6 @@ public class MyController {
 						detailBean.statusName = json2.getString("statusname");
 						list.add(detailBean);
 					}
-
 				}
 
 			} catch (JSONException e) {
@@ -1496,8 +1499,8 @@ public class MyController {
 		}
 		return list;
 	}
-	
-	public RegisterFinalBean goToRegist(String appkey,String mobile,String pos,String code,String pwd,String gps,String key){
+
+	public RegisterFinalBean goToRegist(String appkey, String mobile, String pos, String code, String pwd, String gps, String key) {
 		RegisterFinalBean bean = new RegisterFinalBean();
 		List<NameValuePair> nv = new ArrayList<NameValuePair>();
 		nv.add(new BasicNameValuePair("appkey", appkey));
@@ -1507,8 +1510,8 @@ public class MyController {
 		nv.add(new BasicNameValuePair("pwd", pwd));
 		nv.add(new BasicNameValuePair("gps", gps));
 		nv.add(new BasicNameValuePair("key", key));
-		String result = HttpTools.getHttpRequestString(nv, Common.URL+"Api/loginreg");
-		if(!isEmpty(result)){
+		String result = HttpTools.getHttpRequestString(nv, Common.URL + "Api/loginreg");
+		if (!isEmpty(result)) {
 			try {
 				JSONObject json = new JSONObject(result);
 				bean.error = json.getString("error");
@@ -1518,12 +1521,13 @@ public class MyController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 		}
 		return bean;
 	}
-	public String getBackgroundPhoto(){
-		String result = HttpTools.getHttpRequestString(null, Common.URL+"Api/weather");
+
+	public String getBackgroundPhoto() {
+		String result = HttpTools.getHttpRequestString(null, Common.URL + "Api/weather");
 		return result;
 	}
 }

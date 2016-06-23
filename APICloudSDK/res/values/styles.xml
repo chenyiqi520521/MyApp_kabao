@@ -51,4 +51,12 @@
     <style name="CustomCheckBoxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
         <item name="android:button">@drawable/selectro_checkbox</item>
     </style>
+     
+    <style name="MyDialogStyleBottom" > 
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+       
+    </style>
+    
+    
 </resources>

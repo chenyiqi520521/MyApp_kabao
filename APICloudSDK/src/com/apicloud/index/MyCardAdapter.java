@@ -117,7 +117,7 @@ public class MyCardAdapter extends BaseAdapter {
 					msg.obj = cardNo;
 					msg.arg1 = del;
 					handler.sendMessage(msg);
-
+					MyCardAdapter.this.notifyDataSetChanged();
 				}
 			});
 			builder.setNegativeButton("取消", null);

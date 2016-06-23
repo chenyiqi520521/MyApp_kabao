@@ -2,16 +2,16 @@ package com.apicloud.activity;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 import android.annotation.SuppressLint;
+import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -25,6 +25,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -58,6 +59,7 @@ public class WelcomeIndexActivity extends BasicActivity implements OnClickListen
 	private TextView tx_welcome_leftmoney;
 	private ImageView welcome_bottom_list;
 	private RelativeLayout rl_background;
+	private Button safely_logout;
 	public static final String PHOTO_PATH = "photo_path";
 	String key;
 	PersonalBean personalBean;
@@ -97,6 +99,8 @@ public class WelcomeIndexActivity extends BasicActivity implements OnClickListen
 		welcome_bottom_list = (ImageView) findViewById(UZResourcesIDFinder.getResIdID("welcome_bottom_list"));
 		welcome_bottom_list.setOnClickListener(this);
 		rl_background = (RelativeLayout) findViewById(UZResourcesIDFinder.getResIdID("rl_background"));
+		safely_logout = (Button) findViewById(UZResourcesIDFinder.getResIdID("safely_logout"));
+		safely_logout.setOnClickListener(this);
 		getBalance();
 		//天气均停止服务，除了和风天气
 	//	getBackground();
@@ -216,6 +220,7 @@ public class WelcomeIndexActivity extends BasicActivity implements OnClickListen
 		// 跳转充值
 		if (v == moneyImage) {
 			Intent intent = new Intent(WelcomeIndexActivity.this, TopUpThreeActivity.class);
+			intent.putExtra("key", key);
 			startActivity(intent);
 		}
 		// 跳转提现
@@ -228,6 +233,7 @@ public class WelcomeIndexActivity extends BasicActivity implements OnClickListen
 		// 卡管理
 		if (v == welcome_bottom_card) {
 			Intent intent = new Intent(WelcomeIndexActivity.this, BindCardActivity.class);
+			intent.putExtra("key", key);
 			startActivity(intent);
 		}
 		// 关于我们
@@ -244,17 +250,20 @@ public class WelcomeIndexActivity extends BasicActivity implements OnClickListen
 		// 身份认证
 		if (v == welcome_bottom_user) {
 			Intent intent = new Intent(WelcomeIndexActivity.this, IdConfirmActivity.class);
+			intent.putExtra("key", key);
 			startActivity(intent);
 		}
 		// 实时收款
 		if (v == rl_realTime_account) {
 			Intent intent = new Intent(WelcomeIndexActivity.this, RealTimeActivity.class);
+			intent.putExtra("key", key);
 			startActivity(intent);
 		}
 		// 绑定设备
 		if (v == rl_bindDevice) {
 			if (WelcomeIndexActivity.this.getSharedPreferences("kalai_save", 0).getString("saved_bind_final", "").isEmpty()) {
 				Intent intent = new Intent(WelcomeIndexActivity.this, BindEquipmentActivity.class);
+				intent.putExtra("key", key);
 				startActivity(intent);
 			} else {
 				Intent intent = new Intent(WelcomeIndexActivity.this, BindEquipmentFinalActivity.class);
@@ -262,6 +271,14 @@ public class WelcomeIndexActivity extends BasicActivity implements OnClickListen
 				intent.putExtra("fromActivity", WELCOME);
 				startActivity(intent);
 			}
+		}
+		//安全退出
+		if(v == safely_logout){
+			ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+			manager.killBackgroundProcesses(getPackageName());
+			Intent intent= new Intent(WelcomeIndexActivity.this,LoginActivity.class);
+			startActivity(intent);
+			finish();
 		}
 		// 交易记录
 		if (v == welcome_bottom_list) {

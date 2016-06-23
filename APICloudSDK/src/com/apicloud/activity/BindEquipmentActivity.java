@@ -19,6 +19,7 @@ public class BindEquipmentActivity extends BasicActivity implements OnClickListe
 	String csn;//设备序列号
 	private static final String BIND_EQUI = "bind_equi";
 	public static final int REQUEST_AS_BIND=200;
+	private String key;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
@@ -36,6 +37,7 @@ public class BindEquipmentActivity extends BasicActivity implements OnClickListe
 	private void initView(){
 		ib_return = (ImageButton) findViewById(UZResourcesIDFinder.getResIdID("ib_return"));
 		tv_bindDev = (TextView) findViewById(UZResourcesIDFinder.getResIdID("tv_getDev"));
+		key = getIntent().getStringExtra("key");
 		ib_return.setOnClickListener(this);
 		tv_bindDev.setOnClickListener(this);
 		setGetCardNum(tv_bindDev);
@@ -48,7 +50,7 @@ public class BindEquipmentActivity extends BasicActivity implements OnClickListe
 			csn=ltm.ksn+"";
 			intent.putExtra("chose_device", CHOSE_DEVICE+"");
 			intent.putExtra("device_num", csn+"");
-			intent.putExtra("lkey",bind_lkey+"");
+			intent.putExtra("lkey",key);
 			intent.putExtra("shopno", bind_shopno+"");
 			intent.putExtra("fromActivity", BIND_EQUI);
 			startActivityForResult(intent,REQUEST_AS_BIND);

@@ -58,9 +58,7 @@ public class AddNewCardActivity extends BasicActivity implements OnClickListener
 	private String lkey;
 	public static Handler resultHandler;
 	private LoginBean loginBean;
-	public static final String MOBILE = "18602123569";
-	public static final String PWD = "65727647";
-	public static final String BANK_SHOPNO = "10010001";
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
@@ -83,6 +81,7 @@ public class AddNewCardActivity extends BasicActivity implements OnClickListener
 		ed_idcard_num = (EditText) findViewById(UZResourcesIDFinder.getResIdID("ed_idcard_num"));
 		ed_phone_num = (EditText) findViewById(UZResourcesIDFinder.getResIdID("ed_phone_num"));
 		bank_crad = (TextView) findViewById(UZResourcesIDFinder.getResIdID("bank_crad"));
+		lkey = getIntent().getStringExtra("key");
 		setGetCardNum(getCardNo);
 		getCardNo.setOnClickListener(this);
 		btn_search.setOnClickListener(this);
@@ -181,10 +180,7 @@ public class AddNewCardActivity extends BasicActivity implements OnClickListener
 				String person = ed_card_name.getText().toString().trim();
 				String phoneNo = ed_phone_num.getText().toString().trim();
 				//模拟个登陆
-				loginBean =new LoginBean();
-				loginBean = controller.doLogin(MOBILE, PWD, BANK_SHOPNO);
-				lkey=loginBean.error;
-				System.out.println(lkey+"-------------");
+				
 				stat =  controller.pushCard(AddNewCardActivity.this, cardNo, person, Controller.NOT_CREADIT_CARD, lkey, idNo, phoneNo, null, child_bb.getId()+"", resultHandler);
 				//验证返回结果
 				confirmOk(stat);

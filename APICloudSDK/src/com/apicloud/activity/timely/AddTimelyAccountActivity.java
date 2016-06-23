@@ -1602,7 +1602,7 @@ public class AddTimelyAccountActivity extends BaseActivity implements OnClickLis
 
 	/**
 	 * 
-	 * ClassName: UpdateTextTask <br/>
+	 * ClassName:  <br/>
 	 * Function: TODO ADD FUNCTION. <br/>
 	 * Reason: TODO ADD REASON(可选). <br/>
 	 * date: 2015-5-7 上午11:47:07 <br/>

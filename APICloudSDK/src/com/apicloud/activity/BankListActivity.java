@@ -181,7 +181,7 @@ public class BankListActivity extends Activity  implements OnScrollListener{
 									pd.dismiss();
 								}
 								adapter.AddData(moreData);
-								adapter.notifyDataSetChanged();
+								
 								lv_bank.setSelection(visibleLastIndex - visibleItemCount + 1); //设置选中项 
 							}
 							

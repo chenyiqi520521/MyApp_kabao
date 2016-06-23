@@ -624,7 +624,7 @@ public class BasicActivity extends Activity {
 			}
 
 		}
-		if (requestCode == SWIP_REQUEST && resultCode == SwipActivity.RESPONSE_SWIP_SUCCESS) {
+		if (requestCode == SWIP_REQUEST && resultCode == NewSwipActivity.RESPONSE_SWIP_SUCCESS) {
 			LandyTackMsg lanyTrackMsg = (LandyTackMsg) data.getSerializableExtra("data");
 			int cur_fromAct = data.getIntExtra("fromAct", -1);
 			//如果是充值

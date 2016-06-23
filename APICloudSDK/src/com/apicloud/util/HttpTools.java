@@ -322,7 +322,7 @@ public class HttpTools {
 			client.getParams().setParameter(CoreConnectionPNames.SO_TIMEOUT,
 					2*60*1000);
 			HttpPost post = new HttpPost(uri);
-			Log.v("param", "url->"+uri+"");
+			Log.v("param_充值", "url->"+uri+"");
 			if(params!=null){
 				 HttpEntity entity = new UrlEncodedFormEntity(params, "UTF-8");
 			    post.setEntity(entity);

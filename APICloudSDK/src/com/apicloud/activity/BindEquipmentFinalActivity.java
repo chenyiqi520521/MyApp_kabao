@@ -21,7 +21,7 @@ public class BindEquipmentFinalActivity extends Activity implements OnClickListe
 	private TextView tv_bind;
 	private MyController controller;
 	private String device_num = "";
-	private String lkey = "";
+	
 	private String shopno = "";
 	private String chose_device="";
 	private String text_bind_button="";
@@ -31,11 +31,11 @@ public class BindEquipmentFinalActivity extends Activity implements OnClickListe
 	public static final String SAVED_BIND_FINAL = "saved_bind_final";
 	public static final String KALAI_SAVE = "kalai_save";
 	public static final String BIND_ADDRESS = "bind_address";
-	public static final String MOBILE = "18602123569";
-	public static final String PWD = "65727647";
+	
 	public static final String BANK_SHOPNO = "10010001";
 	private LoginBean loginBean;
 	public static final String WELCOME = "welcomeIndex";
+	private String lkey="";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
@@ -58,6 +58,7 @@ public class BindEquipmentFinalActivity extends Activity implements OnClickListe
 				text_bind_button = getIntent().getStringExtra("text_bind_button");
 			    tv_bind.setText(text_bind_button);
 			}
+			lkey = getIntent().getStringExtra("lkey");
 			device_num = getIntent().getStringExtra("device_num");
 		    chose_device = getIntent().getStringExtra("chose_device");
 		    tv_deviceNo.setText("设备编号:"+device_num);
@@ -98,9 +99,7 @@ public class BindEquipmentFinalActivity extends Activity implements OnClickListe
 				public void run() {
 					
 					super.run();
-					loginBean =new LoginBean();
-					loginBean = controller.doLogin(MOBILE, PWD, BANK_SHOPNO);
-					lkey=loginBean.error;
+					
 					MsgBean msg  = controller.bindDevice(device_num, BANK_SHOPNO, lkey);
 					//处理返回的数据
 					handleResult(msg);
